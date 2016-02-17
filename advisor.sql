@@ -23,14 +23,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `professor`
+-- Table structure for table `advisor`
 --
 
-CREATE TABLE `professor` (
-  `profid` int(9) NOT NULL COMMENT 'Unique identifier for each registered professor, Primary Key',
-  `fname` varchar(20) NOT NULL COMMENT 'First name of professor',
-  `lname` varchar(30) NOT NULL COMMENT 'Last name of professor',
-  `email` varchar(50) NOT NULL COMMENT 'Email address tied to this account'
+CREATE TABLE `advisor` (
+  `advid` int(9) NOT NULL COMMENT 'Unique identifier for each registered advisor, Primary Key',
+  `fname` varchar(20) NOT NULL COMMENT 'First name of advisor',
+  `lname` varchar(30) NOT NULL COMMENT 'Last name of advisor',
+  `email` varchar(50) NOT NULL COMMENT 'Email address tied to this account',
+  `phone` varchar(10) NOT NULL COMMENT 'Phone number of advisor'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -38,10 +39,10 @@ CREATE TABLE `professor` (
 --
 
 --
--- Indexes for table `professor`
+-- Indexes for table `advisor`
 --
-ALTER TABLE `professor`
-  ADD PRIMARY KEY (`profid`);
+ALTER TABLE `advisor`
+  ADD PRIMARY KEY (`advid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
