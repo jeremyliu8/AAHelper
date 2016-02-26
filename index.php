@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<?php 
+    session_start();
+
+    $username = "user";
+    $password = "password";
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        header("Location: success.php");
+    }
+
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        if ($_POST['username'] == $username && $_POST['password'] == $password) {
+            $_SESSION['loggedin'] = true;
+            header("Location: success.php");
+        }
+    }
+?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,30 +28,17 @@
     <body>
         <header>
             <h1>Advising Helper</h1>
-            <div id ="loginform">
+            <div id="login" class ="form">
                 <form action = "decide.html" method="post" accept-charset='UTF-8'>
                     <p><input type="text" class="input" name="userid" placeholder="Username" required></p>
                     <p><input type="password" class="input" name="paswrd" placeholder="Password" required></p>
                     <p><input type="submit" class="go" value="Login"></p>
                 </form>
-                <!-- <script language="javascript">
-                    function check(form) 
-                    {
-                        if(form.userid.value == "student" && form.pswrd.value == "student")
-                        {
-                            window.open('student-login.html');
-                        }
-                        else if(form.userid.value == "student" && form.pswrd.value == "student")
-                        {
-                            window.open('teacher-login.html');
-                        }
-                    }
-                </script> -->
             </div>
-            <p>If you do not have an account yet, <a href="#">click here</a></p>
+            <p>If you do not have an account yet, <a class="link" href="onboard.php">click here</a></p>
         </header>
-        <footer>
-            <p>&copy; 2015 Finger Puppet Mafia <br/ > Azusa Pacific University <br/ > Rapid Prototype: October 23, 2015</p>
-        </footer>
+        
+        <!-- include footer -->
+        <?php include 'footer.php'; ?>
     </body>   
 </html>

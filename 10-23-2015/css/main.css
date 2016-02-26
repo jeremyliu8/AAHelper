@@ -45,7 +45,7 @@ footer{
     font-size: 9pt;
 }
 
-a{
+a {
     text-decoration: none;
     color: #00bfff;
 }
@@ -60,7 +60,7 @@ p{
 
 .go{
     border:1px solid #00bfff;
-    padding: 10px 30px;
+    padding: 9px 30px;
     color: #00bfff;
     font-size: 18pt;
     background-color: #f8f8f8;
@@ -73,6 +73,10 @@ p{
     transition:.7s;
 }
 
+.searchbtn {
+    background-color: #fff;
+}
+
 ul{
     list-style: none;
     padding: 0;
@@ -83,9 +87,7 @@ li{
     background-color: #00bfff;
     border-radius: 10px;
     padding: 20px;
-    width: 200px;
     font-size: 12pt;
-    margin: 30px auto 0;
     font-weight: 300;
     border:2px solid #00bfff;
 }
@@ -100,6 +102,9 @@ li:hover{
 
 a.button{
     color: #fff;
+    width: 200px;
+    margin: 30px auto 0;
+    display: block;
 }
 
 a.button:hover{
