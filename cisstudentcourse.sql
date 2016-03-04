@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 10:25 AM
+-- Generation Time: Mar 04, 2016 at 10:42 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS `cisstudentcourse` (
   `cscourseid` varchar(7) NOT NULL COMMENT ' unique identifier for each registered professor, Primary Key',
   `grade` varchar(2) NOT NULL COMMENT ' GRADE B+, B, B-',
   `termtkn` int(5) NOT NULL COMMENT ' Which term the class was taken 20157 (2015 = YEAR, 7 = TERM) Terms: 1=SPRING 3=SUMMER_A 7=FALL   if 00000, then it is a transfer credit',
-  `status` char(1) NOT NULL
+  `status` char(1) NOT NULL,
+  `id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

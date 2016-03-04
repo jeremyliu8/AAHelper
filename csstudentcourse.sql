@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 10:25 AM
+-- Generation Time: Mar 04, 2016 at 10:42 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS `csstudentcourse` (
   `cscourseid` varchar(7) NOT NULL,
   `grade` varchar(2) NOT NULL,
   `termtkn` int(5) NOT NULL,
-  `status` char(1) NOT NULL
+  `status` char(1) NOT NULL,
+  `id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
