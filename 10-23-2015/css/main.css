@@ -1,56 +1,9 @@
 html{
+    text-align:center;
     font-family:Lato;
 }
 
-body {
-    text-align:center;
-    margin: 0;
-}
-
-/****************************************
-Login Page 
-*****************************************/
-
-.form{
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius:20px;
-    margin: 0 auto;
-}
-
-#login {
-    width: 350px;
-}
-
-
-
-
-/****************************************
-New User Page 
-*****************************************/
-
-#newuser {
-    width: 800px;
-    border-radius: 0px;
-    margin: auto;
-}
-
-#newuser .input{
-    width: 40%;
-}
-
-
-/* Colors */
-p {
-    color: #999;
-}
-
-h1, a, li:hover{
-    color: #00bfff;
-}
-
-/* Text Field Configurations */
-.input {
+.input{
     padding: 10px;
     font-size: 16pt;
     color: #757575;
@@ -61,31 +14,27 @@ h1, a, li:hover{
 }
 
 .input:focus {
-    border-color: #00bfff;
-    outline-color: #00bfff;
-    outline-offset: 0;
-	/*box-shadow:0 0 3px #00bfff,
-				0 0 6px #00bfff;
-				0 0 9px #00bfff;*/
-    transition: .5s;
-}
+        border-color: #00bfff;
+        outline-color: #00bfff;
+        outline-offset: 0;
+    	/*box-shadow:0 0 3px #00bfff,
+    				0 0 6px #00bfff;
+    				0 0 9px #00bfff;*/
+        transition: .5s;
+    }
 
-.dropdown {
-    border-radius: 0;
-    font-size: 16pt;
-    line-height: 1.42857143;
-    width: 43%;
-    height: 50px;
-    font-weight: 300;
-    color: #aaa;
-    background-color: white;
-    border: 2px solid #eee;
+#loginform{
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius:20px;
+    width: 350px;
+    margin: 0 auto;
 }
-
 
 h1{
     margin: 40px;
     font-size: 40pt;
+    color: #00bfff;
     font-weight:700;
 }
 
@@ -98,10 +47,15 @@ footer{
 
 a {
     text-decoration: none;
+    color: #00bfff;
 }
 
 a:hover{
     text-decoration: underline;
+}
+
+p{
+    color: #999;
 }
 
 .go{
@@ -114,7 +68,7 @@ a:hover{
 }
 
 .go:hover{
-    background-color: #00bfff;
+    background-color:#00bfff;
     color: #fff;
     transition:.7s;
 }
@@ -141,6 +95,7 @@ li{
 li:hover{
     background-color: #fff;
     border:2px solid #00bfff;
+    color: #00bfff;
     font-weight: 300;
     transition: .5s;
 }
@@ -154,8 +109,4 @@ a.button{
 
 a.button:hover{
     text-decoration: none;
-}
-
-select {
-   color: white;
 }
