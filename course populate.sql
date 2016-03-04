@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 08:28 AM
+-- Generation Time: Mar 04, 2016 at 08:56 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -53,6 +53,7 @@ INSERT INTO `course` (`courseid`, `classname`, `units`, `term`) VALUES
 ('CS430', 'Artificial Intelligence', 3, '101'),
 ('CS435', 'Advanced Database', 3, '011'),
 ('CS445', 'Compilers, Architecture, & Organization', 4, '101'),
+('CS455', 'Numerical Analysis', 3, '011'),
 ('CS470', 'Software Engineering I', 3, '101'),
 ('CS480', 'Software Engineering II', 3, '011'),
 ('CS495', 'Topics', 1, '111'),
