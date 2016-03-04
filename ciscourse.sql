@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 09:55 AM
+-- Generation Time: Mar 04, 2016 at 10:24 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ciscourse` (
-  `courseid` varchar(7) NOT NULL COMMENT ' Primary key for the table. Unique to each class',
+  `ciscourseid` varchar(7) NOT NULL COMMENT ' Primary key for the table. Unique to each class',
   `classname` varchar(50) NOT NULL COMMENT ' Name of the class',
   `units` int(1) NOT NULL COMMENT ' Number of units for this class',
   `term` varchar(3) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `ciscourse` (
 -- Dumping data for table `ciscourse`
 --
 
-INSERT INTO `ciscourse` (`courseid`, `classname`, `units`, `term`, `required`) VALUES
+INSERT INTO `ciscourse` (`ciscourseid`, `classname`, `units`, `term`, `required`) VALUES
 ('ACCT120', 'Principles of Accounting I', 4, '111', 1),
 ('BUSI210', 'Principles of Organization & Management', 3, '111', 1),
 ('CS220', 'Intro to CS I', 4, '111', 1),
@@ -74,7 +74,7 @@ INSERT INTO `ciscourse` (`courseid`, `classname`, `units`, `term`, `required`) V
 -- Indexes for table `ciscourse`
 --
 ALTER TABLE `ciscourse`
- ADD PRIMARY KEY (`courseid`);
+ ADD PRIMARY KEY (`ciscourseid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

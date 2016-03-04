@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 09:54 AM
+-- Generation Time: Mar 04, 2016 at 10:24 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `cscourse` (
-  `courseid` varchar(7) NOT NULL,
+  `cscourseid` varchar(7) NOT NULL,
   `classname` varchar(50) NOT NULL,
   `units` int(1) NOT NULL,
   `term` varchar(3) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `cscourse` (
 -- Dumping data for table `cscourse`
 --
 
-INSERT INTO `cscourse` (`courseid`, `classname`, `units`, `term`, `required`) VALUES
+INSERT INTO `cscourse` (`cscourseid`, `classname`, `units`, `term`, `required`) VALUES
 ('CS220', 'Intro to CS I', 4, '111', 1),
 ('CS225', 'Intro to CS II', 4, '111', 1),
 ('CS250', 'Operating Systems', 3, '011', 1),
@@ -74,7 +74,7 @@ INSERT INTO `cscourse` (`courseid`, `classname`, `units`, `term`, `required`) VA
 -- Indexes for table `cscourse`
 --
 ALTER TABLE `cscourse`
- ADD PRIMARY KEY (`courseid`);
+ ADD PRIMARY KEY (`cscourseid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
