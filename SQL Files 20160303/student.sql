@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `student` (
-  `studentid` int(9) NOT NULL,
+  `studentid` varchar(9) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `profid` int(9) NOT NULL
+  `advid` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

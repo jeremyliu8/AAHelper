@@ -2,19 +2,29 @@
 <?php 
     session_start();
 
-    $username = "user";
-    $password = "password";
-
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        header("Location: success.php");
+        header("Location: form.php");
     }
 
     if (isset($_POST['username']) && isset($_POST['password'])) {
         if ($_POST['username'] == $username && $_POST['password'] == $password) {
             $_SESSION['loggedin'] = true;
-            header("Location: success.php");
+            header("Location: form.php");
         }
     }
+
+    // Set all errors to null for now
+    $usernameErr = "";
+    $passwordErr = "";
+
+    // Connect to the database
+    include_once 'includes/db_connect.php';
+
+    // Load functions
+    require 'includes/functions.php';
+
+    login($connection);
+
 ?>
 
 <html>
@@ -29,9 +39,11 @@
         <header>
             <h1>Advising Helper</h1>
             <div id="login" class ="form">
-                <form action = "decide.html" method="post" accept-charset='UTF-8'>
-                    <p><input type="text" class="input" name="userid" placeholder="Username" required></p>
-                    <p><input type="password" class="input" name="paswrd" placeholder="Password" required></p>
+                <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" accept-charset='UTF-8'>
+                    <p><input type="text" class="input" name="user" placeholder="Username" required></p>
+                    <?php echo $usernameErr;?>
+                    <p><input type="password" class="input" name="password" placeholder="Password" required></p>
+                    <?php echo $passwordErr;?>
                     <p><input type="submit" class="go" value="Login"></p>
                 </form>
             </div>

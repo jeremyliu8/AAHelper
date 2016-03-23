@@ -1,7 +1,11 @@
 <?php 
     session_start();
-    
-    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-        header("Location: index.php");
-    }
+
+    // Connect to the database
+    include_once 'includes/db_connect.php';
+
+    // Load functions
+    require 'includes/functions.php';
+
+    login($connection);
 ?>

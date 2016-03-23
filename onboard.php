@@ -14,9 +14,12 @@
                 <p><input type="text" class="input" name="studid" placeholder="Student ID" required></p>
                 <p><input type="text" class="input" name="fname" placeholder="First Name" required></p>
                 <p><input type="text" class="input" name="lname" placeholder="Last Name" required></p>
-                <p><input type="text" class="input" name="username" placeholder="Username" required></p>
                 <p><input type="text" class="input" name="email" placeholder="E-Mail" required></p>
                 <p><input type="password" class="input" name="password" placeholder="Password" required></p>
+                <p><select name="major" class="dropdown">
+                    <option value="CS">Computer Science</option>
+                    <option value="CIS">Computer Information Systems</option>
+                </select></p>
                 <p><select name="advisor" class="dropdown">
                     <option value="default">Select your advisor...</option>
                     <?php 
