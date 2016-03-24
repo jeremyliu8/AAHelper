@@ -47,7 +47,7 @@ function login($connection) {
 
 				$connection->close();
 
-				header("Location: form.php");
+				header("Location: StudentList2.php");
 			}
 			else {
 				$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";

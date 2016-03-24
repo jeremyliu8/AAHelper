@@ -9,7 +9,7 @@
     require_once 'includes/functions.php';
 
     if (logged_in()) {
-        header("Location: form.php");
+        header("location: StudentList2.php");
     }
 
     // Login using the connection set up in db_connect.php
@@ -28,8 +28,6 @@
         $passwordErr = $_SESSION['passwordErr'];
         unset($_SESSION['passwordErr']);
     }
-
-    // echo "<pre>\n";   print_r($_SESSION);   echo "</pre>\n"; 
 ?>
 
 <html>
@@ -63,6 +61,5 @@
             // // Destroy session 
             // session_destroy();
         ?>
-
     </body>   
 </html>

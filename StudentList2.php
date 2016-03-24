@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <?php
+    session_start();
 // studentid of selected student
-$stunum = $_POST["studentnum"];
+$stunum = $_SESSION["studentid"];
 
 //open database
 $fulldb = mysql_connect('localhost', 'root', '');
@@ -109,15 +110,7 @@ while ($row = mysql_fetch_object($result)) {
 </div>
 </div> <?php
 
-mysql_close($fulldb);
-?>
-
-<footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>&copy; 2015 Finger Puppet Mafia <br/ > Azusa Pacific University <br/ ></p>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- include footer -->
+<center>
+<?php include 'footer.php'; ?>
+</center>
