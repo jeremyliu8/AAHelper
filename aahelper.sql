@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2016 at 01:23 AM
+-- Generation Time: Mar 24, 2016 at 10:59 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -48,52 +48,181 @@ INSERT INTO `advisor` (`advid`, `fname`, `lname`, `email`, `phone`, `password`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `coreq`
+--
+
+CREATE TABLE `coreq` (
+  `courseid` varchar(7) NOT NULL,
+  `coreqid` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `coreq`
+--
+
+INSERT INTO `coreq` (`courseid`, `coreqid`) VALUES
+('CS220', 'MATH110'),
+('CS380', 'CS350'),
+('CS390', 'CS350'),
+('CS445', 'CS350');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `courses`
 --
 
 CREATE TABLE `courses` (
-  `ciscourseid` varchar(7) NOT NULL COMMENT ' Primary key for the table. Unique to each class',
+  `courseid` varchar(7) NOT NULL COMMENT ' Primary key for the table. Unique to each class',
   `classname` varchar(50) NOT NULL COMMENT ' Name of the class',
   `units` int(1) NOT NULL COMMENT ' Number of units for this class',
-  `term` varchar(3) DEFAULT NULL,
-  `cs` int(1) NOT NULL,
-  `cis` int(1) NOT NULL
+  `term` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`ciscourseid`, `classname`, `units`, `term`, `cs`, `cis`) VALUES
-('ACCT120', 'Principles of Accounting I', 4, '111', 0, 2),
-('BUSI210', 'Principles of Organization & Management', 3, '111', 0, 2),
-('CS220', 'Intro to CS I', 4, '111', 2, 2),
-('CS225', 'Intro to CS II', 4, '111', 2, 2),
-('CS250', 'Operating Systems', 3, '011', 2, 2),
-('CS330', 'Systems Programming', 3, '101', 2, 2),
-('CS340', 'Systems Programming II', 3, '011', 2, 1),
-('CS350', 'Discrete Structures', 3, '111', 2, 2),
-('CS363', 'Web Programming', 3, '011', 1, 1),
-('CS380', 'Data Structures', 3, '011', 2, 2),
-('CS390', 'Database Mgt Systems', 3, '111', 2, 2),
-('CS400', 'Compiler Construction', 3, '101', 2, 1),
-('CS420', 'Telecommunications & Interfacing', 3, '011', 1, 2),
-('CS425', 'Fundamentals of Network Administration', 3, '101', 1, 1),
-('CS430', 'Artificial Intelligence', 3, '101', 1, 1),
-('CS435', 'Advanced Database', 3, '011', 1, 2),
-('CS445', 'Compilers, Architecture, & Organization', 4, '101', 2, 1),
-('CS455', 'Numerical Analysis', 3, '011', 2, 1),
-('CS470', 'Software Engineering I', 3, '101', 2, 2),
-('CS480', 'Software Engineering II', 3, '011', 2, 2),
-('CS495', 'Topics', 1, '111', 1, 1),
-('CS496', 'Senior Seminar: Ethics in Computer Science', 3, '101', 1, 1),
-('MATH090', 'Elementary Algebra', 3, '111', 2, 2),
-('MATH095', 'Intermediate Algebra', 3, '111', 2, 2),
-('MATH110', 'College Algebra', 3, '111', 2, 2),
-('MATH150', 'Precalculus', 3, '111', 2, 2),
-('MATH151', 'Applied Calculus I', 3, '111', 0, 2),
-('MATH161', 'Calculus I', 5, '111', 2, 0),
-('MATH162', 'Calculus II', 4, '111', 2, 0);
+INSERT INTO `courses` (`courseid`, `classname`, `units`, `term`) VALUES
+('ACCT120', 'Principles of Accounting I', 4, '111'),
+('BUSI210', 'Principles of Organization & Management', 3, '111'),
+('CS220', 'Intro to CS I', 4, '111'),
+('CS225', 'Intro to CS II', 4, '111'),
+('CS250', 'Operating Systems', 3, '011'),
+('CS330', 'Systems Programming', 3, '101'),
+('CS340', 'Systems Programming II', 3, '011'),
+('CS350', 'Discrete Structures', 3, '111'),
+('CS363', 'Web Programming', 3, '011'),
+('CS380', 'Data Structures', 3, '011'),
+('CS390', 'Database Mgt Systems', 3, '111'),
+('CS400', 'Compiler Construction', 3, '101'),
+('CS420', 'Telecommunications & Interfacing', 3, '011'),
+('CS425', 'Fundamentals of Network Administration', 3, '101'),
+('CS430', 'Artificial Intelligence', 3, '101'),
+('CS435', 'Advanced Database', 3, '011'),
+('CS445', 'Compilers, Architecture, & Organization', 4, '101'),
+('CS455', 'Numerical Analysis', 3, '011'),
+('CS470', 'Software Engineering I', 3, '101'),
+('CS480', 'Software Engineering II', 3, '011'),
+('CS495', 'Topics', 1, '111'),
+('CS496', 'Senior Seminar: Ethics in Computer Science', 3, '101'),
+('MATH090', 'Elementary Algebra', 3, '111'),
+('MATH095', 'Intermediate Algebra', 3, '111'),
+('MATH110', 'College Algebra', 3, '111'),
+('MATH150', 'Precalculus', 3, '111'),
+('MATH151', 'Applied Calculus I', 3, '111'),
+('MATH161', 'Calculus I', 5, '111'),
+('MATH162', 'Calculus II', 4, '111');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `major`
+--
+
+CREATE TABLE `major` (
+  `majorid` varchar(4) NOT NULL,
+  `courseid` varchar(7) NOT NULL,
+  `required` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `major`
+--
+
+INSERT INTO `major` (`majorid`, `courseid`, `required`) VALUES
+('CIS', 'ACCT120', 'REQUIRED'),
+('CIS', 'BUSI210', 'REQUIRED'),
+('CIS', 'CS220', 'REQUIRED'),
+('CIS', 'CS225', 'REQUIRED'),
+('CIS', 'CS250', 'REQUIRED'),
+('CIS', 'CS330', 'REQUIRED'),
+('CIS', 'CS340', 'ELECTIVE '),
+('CIS', 'CS350', 'REQUIRED'),
+('CIS', 'CS363', 'ELECTIVE'),
+('CIS', 'CS380', 'REQUIRED'),
+('CIS', 'CS390', 'REQUIRED'),
+('CIS', 'CS400', 'ELECTIVE'),
+('CIS', 'CS420', 'REQUIRED'),
+('CIS', 'CS425', 'ELECTIVE'),
+('CIS', 'CS430', 'ELECTIVE'),
+('CIS', 'CS435', 'REQUIRED'),
+('CIS', 'CS445', 'ELECTIVE'),
+('CIS', 'CS470', 'REQUIRED'),
+('CIS', 'CS480', 'REQUIRED'),
+('CIS', 'CS495', 'REQUIRED'),
+('CIS', 'CS496', 'REQUIRED'),
+('CIS', 'MATH090', 'REQUIRED'),
+('CIS', 'MATH095', 'REQUIRED'),
+('CIS', 'MATH110', ' REQUIRED'),
+('CIS', 'MATH151', 'REQUIRED'),
+('CS', 'CS220', 'REQUIRED'),
+('CS', 'CS225', 'REQUIRED'),
+('CS', 'CS250', 'REQUIRED'),
+('CS', 'CS330', 'REQUIRED'),
+('CS', 'CS340', 'REQUIRED'),
+('CS', 'CS350', 'REQUIRED'),
+('CS', 'CS363', 'ELECTIVE '),
+('CS', 'CS380', 'REQUIRED'),
+('CS', 'CS390', 'REQUIRED'),
+('CS', 'CS400', 'REQUIRED'),
+('CS', 'CS420', 'ELECTIVE'),
+('CS', 'CS425', 'ELECTIVE'),
+('CS', 'CS430', ' ELECTIVE'),
+('CS', 'CS435', 'ELECTIVE'),
+('CS', 'CS445', 'REQUIRED'),
+('CS', 'CS455', 'REQUIRED'),
+('CS', 'CS470', 'REQUIRED'),
+('CS', 'CS480', 'REQUIRED'),
+('CS', 'CS495', 'REQUIRED'),
+('CS', 'CS496', 'REQUIRED'),
+('CS', 'MATH110', 'REQUIRED'),
+('CS', 'MATH150', 'REQUIRED'),
+('CS', 'MATH161', 'REQUIRED'),
+('CS', 'MATH162', 'REQUIRED');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prereq`
+--
+
+CREATE TABLE `prereq` (
+  `courseid` varchar(7) NOT NULL,
+  `prereqid` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prereq`
+--
+
+INSERT INTO `prereq` (`courseid`, `prereqid`) VALUES
+('CS225', 'CS220'),
+('CS250', 'CS225'),
+('CS330', 'CS225'),
+('CS340', 'CS225'),
+('CS340', 'CS330'),
+('CS350', 'CS220'),
+('CS350', 'MATH151'),
+('CS350', 'MATH161'),
+('CS363', 'CS225'),
+('CS390', 'CS220'),
+('CS400', 'CS380'),
+('CS420', 'CS330'),
+('CS425', 'CS420'),
+('CS430', 'CS225'),
+('CS435', 'CS330'),
+('CS435', 'CS390'),
+('CS445', 'CS225'),
+('CS455', 'CS220'),
+('CS455', 'MATH161'),
+('CS470', 'CS380'),
+('CS470', 'CS390'),
+('CS480', 'CS470'),
+('MATH150', 'MATH110'),
+('MATH151', 'MATH110'),
+('MATH161', 'MATH150'),
+('MATH162', 'MATH161');
 
 -- --------------------------------------------------------
 
@@ -155,10 +284,31 @@ ALTER TABLE `advisor`
   ADD PRIMARY KEY (`advid`);
 
 --
+-- Indexes for table `coreq`
+--
+ALTER TABLE `coreq`
+  ADD PRIMARY KEY (`courseid`,`coreqid`),
+  ADD KEY `coreqid` (`coreqid`);
+
+--
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`ciscourseid`);
+  ADD PRIMARY KEY (`courseid`);
+
+--
+-- Indexes for table `major`
+--
+ALTER TABLE `major`
+  ADD PRIMARY KEY (`majorid`,`courseid`),
+  ADD KEY `courseid` (`courseid`);
+
+--
+-- Indexes for table `prereq`
+--
+ALTER TABLE `prereq`
+  ADD PRIMARY KEY (`courseid`,`prereqid`),
+  ADD KEY `prereqid` (`prereqid`);
 
 --
 -- Indexes for table `student`
@@ -179,6 +329,26 @@ ALTER TABLE `studentcourse`
 --
 
 --
+-- Constraints for table `coreq`
+--
+ALTER TABLE `coreq`
+  ADD CONSTRAINT `coreq_ibfk_1` FOREIGN KEY (`courseid`) REFERENCES `courses` (`courseid`),
+  ADD CONSTRAINT `coreq_ibfk_2` FOREIGN KEY (`coreqid`) REFERENCES `courses` (`courseid`);
+
+--
+-- Constraints for table `major`
+--
+ALTER TABLE `major`
+  ADD CONSTRAINT `major_ibfk_1` FOREIGN KEY (`courseid`) REFERENCES `courses` (`courseid`);
+
+--
+-- Constraints for table `prereq`
+--
+ALTER TABLE `prereq`
+  ADD CONSTRAINT `prereq_ibfk_1` FOREIGN KEY (`courseid`) REFERENCES `courses` (`courseid`),
+  ADD CONSTRAINT `prereq_ibfk_2` FOREIGN KEY (`prereqid`) REFERENCES `courses` (`courseid`);
+
+--
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
@@ -189,7 +359,7 @@ ALTER TABLE `student`
 --
 ALTER TABLE `studentcourse`
   ADD CONSTRAINT `studentcourse_ibfk_1` FOREIGN KEY (`studentid`) REFERENCES `student` (`studentid`),
-  ADD CONSTRAINT `studentcourse_ibfk_2` FOREIGN KEY (`courseid`) REFERENCES `courses` (`ciscourseid`);
+  ADD CONSTRAINT `studentcourse_ibfk_2` FOREIGN KEY (`courseid`) REFERENCES `courses` (`courseid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

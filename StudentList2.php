@@ -108,9 +108,9 @@ while ($row = mysql_fetch_object($result)) {
 </div>
 </div>
 </div>
-</div> <?php
+</div> 
 
 <!-- include footer -->
 <center>
-<?php include 'footer.php'; ?>
+  <?php include 'footer.php'; ?>
 </center>
