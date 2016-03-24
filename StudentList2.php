@@ -105,10 +105,16 @@ while ($row = mysql_fetch_object($result)) {
 ?> </tr>
 </table>
 </div>
+<center><a href="includes/logout.php">Logout</a></center>
 </div>
 </div>
 </div>
 </div> 
+
+mysql_close($fulldb);
+?>
+
+
 
 <!-- include footer -->
 <center>
