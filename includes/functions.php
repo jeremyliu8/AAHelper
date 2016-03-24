@@ -10,35 +10,54 @@
 */
 function login($connection) {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$_SESSION['username'] = validateInput($_POST['user']);
-		$_SESSION['password'] = hash('sha512', validateInput($_POST['password']));
 
-		$checkID = "SELECT password
-					FROM student
-					WHERE studentid = $user;";
+		$user = validateInput($_POST['user']);
+		$password = hash('sha512', validateInput($_POST['password']));
 
-		$checkEmail = "	SELECT password
+		$checkEmail = "	SELECT *
 						FROM student
-						WHERE email = $user;";
+						WHERE email = ? LIMIT 1;";
 
-		echo $checkEmail;
+		// Prepare the statement and bind parameters
+		$stmt = $connection->prepare($checkEmail);
+		$stmt->bind_param('s', $user);
 
-		$result = $connection->query($checkEmail);
+		$stmt->execute();
 
-		if ($result === FALSE) {
-			return FALSE;
-		}
+    	$result = $stmt->get_result(); 
 
-		$result = $connection->query($checkID);
-		if ($result->num_rows < 1) {
-			$usernameErr = "<p class='error'>* Username not found</p>";
-		}
+    	$storedStudent = $result->fetch_assoc();
 
-		if (hash_equals($password, $result->fetch_row())) {
-			header("Location: form.php");
+    	// if (empty($storedStudent)) {
+    	// 	echo "No found results!";
+    	// }
+
+    	// echo "<pre>\n";   print_r($storedStudent);   echo "</pre>\n";
+
+
+		if (!empty($storedStudent)) {
+			if (hash_equals($password, $storedStudent['password'])) {
+				// That means we are in! Let's set the session variables...
+				$_SESSION['fname'] = $storedStudent['fname'];
+				$_SESSION['lname'] = $storedStudent['lname'];
+				$_SESSION['studentid'] = $storedStudent['studentid'];
+				$_SESSION['major'] = $storedStudent['earufh'];
+				$_SESSION['password'] = $storedStudent['password'];
+				$_SESSION['loggedin'] = TRUE;
+
+				$connection->close();
+
+				header("Location: form.php");
+			}
+			else {
+				$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";
+				$connection->close();
+
+			}
 		}
 		else {
-			$passwordErr = "<p class='error'>* Password does not match</p>";
+			$_SESSION['usernameErr'] = "<p class='error'>* Username not found</p>";
+			$connection->close();
 		}
 	}
 }
@@ -51,47 +70,18 @@ function login($connection) {
 * @params = mysqli object
 * returns = boolean (true if connected, false if not)
 */
-function logged_in($connection) {
-	// Check if all session variables are set
-	if (isset($_SESSION['username'], $_SESSION['studentid'])) {
-		$username = $_SESSION['username'];
-		$studentid = $_SESSION['stduentid'];
-		// Get the user-agent string of the user
-		$user_browser = $_SESSION['HTTP_USER_AGENT'];
+function logged_in() {
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) {
+        return true;
+    }
+    else {
+    	return false;
+    }
+}
 
-		if ($sql = $connection->prepare("SELECT password
-										 FROM aahelper
-										 WHERE id = ? LIMIT 1")) {
-			// Bind $username to parameter.
-			$sql->bind_param('i',$studentid);
-			$sql->execute();
-			$stmt->store_result();
-
-			if ($stmt->num_rows == 1) {
-				// If the user exists get variables from result.
-				$stmt->bind_result($password);
-				$stmt->fetch();
-				$login_check = hash('sha512', $password . $user_browser);
-
-				if (hash_equals($login_check, $login_string)) {
-					// We are logged in!
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
-	}
-	else {
-		return false; // Not logged in
-	}
+function logout() {
+	session_destroy();
+	header("Location: index.php");
 }
 
 function validateInput($input) {
