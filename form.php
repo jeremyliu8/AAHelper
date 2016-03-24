@@ -555,6 +555,8 @@
 </div>
   </div>
 </div>
+<center><a href="includes/logout.php">Logout</a></center>
+
   <hr>
 <footer class="text-center">
   <div class="container">

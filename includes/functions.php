@@ -79,10 +79,6 @@ function logged_in() {
     }
 }
 
-function logout() {
-	session_destroy();
-	header("Location: index.php");
-}
 
 function validateInput($input) {
 	$input = trim($input);
@@ -90,7 +86,5 @@ function validateInput($input) {
 	$input = htmlspecialchars($input);
 	return $input;
 }
-
-
 
 ?>
