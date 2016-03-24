@@ -8,8 +8,8 @@
     // Load functions
     require_once 'includes/functions.php';
 
-    if (loggedin()) {
-        location("header: form.php");
+    if (logged_in()) {
+        header("location: StudentList2.php");
     }
 
     // Login using the connection set up in db_connect.php
@@ -31,7 +31,7 @@
         unset($_SESSION['passwordErr']);
     }
 
-    echo "<pre>\n";   print_r($_SESSION);   echo "</pre>\n"; 
+    //echo "<pre>\n";   print_r($_SESSION);   echo "</pre>\n"; 
 ?>
 
 <html>
@@ -58,9 +58,6 @@
         </header>
         
         <!-- include footer -->
-        <?php include 'footer.php'; 
-            $_SESSION
-        ?>
-
+        <?php include 'footer.php'; ?>
     </body>   
 </html>
