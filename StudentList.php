@@ -26,7 +26,6 @@
 	?>
 	<tr>
 		<td>
-		  <?php echo $row["studentid"] ?>
 		  <input type="radio" name="studentnum" value="<?php echo $row["studentid"] ?>" ><br>
 		</td>
 		<td>
