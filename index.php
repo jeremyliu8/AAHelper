@@ -2,29 +2,36 @@
 <?php 
     session_start();
 
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        header("Location: form.php");
-    }
-
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        if ($_POST['username'] == $username && $_POST['password'] == $password) {
-            $_SESSION['loggedin'] = true;
-            header("Location: form.php");
-        }
-    }
-
-    // Set all errors to null for now
-    $usernameErr = "";
-    $passwordErr = "";
-
     // Connect to the database
     include_once 'includes/db_connect.php';
 
     // Load functions
-    require 'includes/functions.php';
+    require_once 'includes/functions.php';
 
+    if (loggedin()) {
+        location("header: form.php");
+    }
+
+    // Login using the connection set up in db_connect.php
     login($connection);
 
+
+    // set error messages to null if no errors
+    $usernameErr = "";
+    $passwordErr = "";
+    
+    if (isset($_SESSION['usernameErr'])) {
+        $usernameErr = $_SESSION['usernameErr'];
+        echo "got usernameErr, now clearing session.";
+        unset($_SESSION['usernameErr']);
+    }
+    if (isset($_SESSION['passwordErr'])) {
+        $passwordErr = $_SESSION['passwordErr'];
+        echo "got passwordErr, now clearing session.";
+        unset($_SESSION['passwordErr']);
+    }
+
+    echo "<pre>\n";   print_r($_SESSION);   echo "</pre>\n"; 
 ?>
 
 <html>
@@ -41,16 +48,19 @@
             <div id="login" class ="form">
                 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" accept-charset='UTF-8'>
                     <p><input type="text" class="input" name="user" placeholder="Username" required></p>
-                    <?php echo $usernameErr;?>
                     <p><input type="password" class="input" name="password" placeholder="Password" required></p>
-                    <?php echo $passwordErr;?>
                     <p><input type="submit" class="go" value="Login"></p>
                 </form>
-            </div>
+                <?php echo $usernameErr; ?>
+                <?php echo $passwordErr; ?>
+               </div>
             <p>If you do not have an account yet, <a class="link" href="onboard.php">click here</a></p>
         </header>
         
         <!-- include footer -->
-        <?php include 'footer.php'; ?>
+        <?php include 'footer.php'; 
+            $_SESSION
+        ?>
+
     </body>   
 </html>
