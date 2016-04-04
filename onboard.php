@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+    // Connect to the Database
+    require_once 'includes/db_connect.php';
+    require_once 'includes/functions.php'; 
+?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -20,51 +26,33 @@
                     <option value="CS">Computer Science</option>
                     <option value="CIS">Computer Information Systems</option>
                 </select></p>
-                <p><select name="advisor" class="dropdown">
+                <p><select name="advisor" class="dropdown" required>
                     <option value="default">Select your advisor...</option>
-                    <?php 
-                        $servername = "localhost";
-                        $dbuser = "root";
-                        $dbpass = "";
-                        $dbname = "aahelper";
+                    <?php                         
+                        // SQL statement we want to execute
+                        $fetchAdvisors = "SELECT advid, fname, lname 
+                                          FROM advisor;";
+                        
+                        // store the result object
+                        $result = $connection->query($fetchAdvisors);
+                        
+                        $name = "";
+                        $advid = "";
 
-                        try {
-                            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbuser, $dbpass);
-                            
-                            // set the PDO error mode to exception
-                            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                            // SQL statement we want to execute
-                            $query = $conn->prepare("SELECT advid, fname, lname FROM advisor");
-                            $query->execute();
-                            
-                            //set the resulting array to associative
-                            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
-
-                            $advisors = $query->fetchAll();
-
-                            $name = "";
-                            $advid = "";
-                            foreach ($advisors as $key => $value) {
-                                foreach ($value as $k => $v) {
-                                    if ($k !== 'advid') {
-                                        $name .= $v . " ";
-                                    }
-                                    else {
-                                        $advid = $v;
-                                    }
-                                }
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $name = $row['fname'] . " " . $row['lname'];
+                                $advid = $row['advid'];
                                 trim($name); // trim off any whitespace
                                 echo "<option value='$advid'>$name</option>";
                                 $name = ""; // reset the name for next advisor.
                             }
                         }
-                        catch(PDOException $e) {
-                            echo "Error: " . $e->getMessage();
-                        }
+                        $connection->close();
                     ?>
                 </select></p>
                 <p><input type="submit" class="go" value="Create!"></p>
+                <p>
             </form>
         </div>
         

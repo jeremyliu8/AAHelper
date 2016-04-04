@@ -10,10 +10,7 @@
 <body>
     <?php
     // Database information
-    $servername = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $dbname = "aahelper";
+    require_once 'includes/db_connect.php';
 
     // POST variables
     $studentid = $_POST['studid'];
@@ -24,32 +21,28 @@
     $major = $_POST['major'];
     $advid = $_POST['advisor'];
 
-    // connect to the database and insert the new user
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbuser, $dbpass);
-
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $query = "INSERT INTO student (studentid, fname, lname, email, password, major, advid) VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$advid')";
-        
-        // use exec() because no results are returned
-        $conn->exec($query);
-
+    $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, advid) 
+            VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$advid')";
+    
+    if ($connection->query($newStudent) === TRUE) {
         echo "<h2 class='success'>&#x2713; New Student Added Successfully!</h2>";
         echo "<p>Click <a href='index.php'>here</a> to go to your new account!</p>";
-
-    }
-    catch(PDOException $e) {
+    } else {
         echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the student!</h2>";
-        if (strpos($e, "1062 Duplicate entry")) {
-            echo "<p>NOTICE: Looks like the student you are adding is already in use!</p>";
-        }
+        echo "<p>Error: " . $connection->error . "</p>";
         echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
     }
 
+    // catch(PDOException $e) {
+    //     echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the student!</h2>";
+    //     if (strpos($e, "1062 Duplicate entry")) {
+    //         echo "<p>NOTICE: Looks like the student you are adding is already in use!</p>";
+    //     }
+    //     echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
+    // }
+
     $conn = null;
-?>
+    ?>
     <!-- include footer -->
     <?php include 'footer.php'; ?>
 </body>

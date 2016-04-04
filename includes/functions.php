@@ -62,6 +62,7 @@ function login($connection) {
 	}
 }
 
+
 /**
 * logged_in function
 * 
@@ -77,6 +78,34 @@ function logged_in() {
     else {
     	return false;
     }
+}
+
+
+/**
+* write_to_file function
+* 
+* This function is used to write the parameter to a file 
+* for debugging purposes
+* 
+* @params = String or array()
+* returns = void
+*/
+
+function write_to_file($param) {
+	// Specify the file to write to
+	$file = __DIR__ . "/testing.txt";
+  	$open_file = fopen($file, "w");
+
+    
+    if (is_array($param)) {
+	    fwrite($open_file, "<pre>");
+	    fwrite($open_file, print_r($param));
+	    fwrite($open_file, "</pre>");
+    } else { // It's a string
+    	fwrite($open_file, $param);
+    }
+
+    fclose($open_file);
 }
 
 

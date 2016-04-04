@@ -3,7 +3,7 @@
     session_start();
 
     // Connect to the database
-    include_once 'includes/db_connect.php';
+    require_once 'includes/db_connect.php';
 
     // Load functions
     require_once 'includes/functions.php';
@@ -35,15 +35,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Advising Helper 1.0</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/main-2.css"/>
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div class="hello">
+        </div>
         <header>
-            <h1>Advising Helper</h1>
+            <h1 class="title">Compass</h1>
             <div id="login" class ="form">
                 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" accept-charset='UTF-8'>
-                    <p><input type="text" class="input" name="user" placeholder="Username" required></p>
+                    <p><input type="text" class="input" name="user" placeholder="E-mail" required></p>
                     <p><input type="password" class="input" name="password" placeholder="Password" required></p>
                     <p><input type="submit" class="go" value="Login"></p>
                 </form>

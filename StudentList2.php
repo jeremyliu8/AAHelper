@@ -111,10 +111,9 @@ while ($row = mysql_fetch_object($result)) {
 </div>
 </div> 
 
-mysql_close($fulldb);
+<?php
+  mysql_close($fulldb);
 ?>
-
-
 
 <!-- include footer -->
 <center>
