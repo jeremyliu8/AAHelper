@@ -41,7 +41,7 @@
     //     echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
     // }
 
-    $conn = null;
+    $connection->close();
     ?>
     <!-- include footer -->
     <?php include 'footer.php'; ?>

@@ -40,10 +40,10 @@ CREATE TABLE `advisor` (
 --
 
 INSERT INTO `advisor` (`advid`, `fname`, `lname`, `email`, `phone`, `password`) VALUES
-('002111333', 'Daniel', 'Grissom', 'dgrissom@apu.edu', '8273641743', 'drgrissomrocks'),
-('002111444', 'Rodney', 'Ulrich', 'rulrich@apu.edu', '4832753859', 'drulrichrocks'),
-('002111555', 'Simon', 'Lin', 'slin@apu.edu', '5582274810', 'drlinrocks'),
-('002112222', 'Samuel', 'Sambasivam', 'ssambasivam@apu.edu', '5985843758', 'drsamrocks');
+('002111333', 'Daniel', 'Grissom', 'dgrissom@apu.edu', '8273641743', 'd8f7569462810c826d017205e2d7f1a117ed162bba62dd23cb5dfc5b5369bb29fc053a28f8887e74b131846b7da187d978a94b2e7ccfdba59f7af724d1276e40'),
+('002111444', 'Rodney', 'Ulrich', 'rulrich@apu.edu', '4832753859', '3d24336153982a0a9754bbdf798a415955b060174cdd04d97b81e14443aeee3d87a2f4ec2ed7da42a012be13c15b304bdd13af7b017188bff02e088e0352e460'),
+('002111555', 'Simon', 'Lin', 'slin@apu.edu', '5582274810', '1cb45669fe73406bc040dbc7ca3257159d635e0cb7ff6f2cb910f658eb729ed2984d4d8581a9552add357d5045da83adfade11236e925e73b589f5d8e4288193'),
+('002112222', 'Samuel', 'Sambasivam', 'ssambasivam@apu.edu', '5985843758', '0f63545af021228f6881d315e77d1af312ec40427ef180531c99f96aaad1d2de0dc6460bfc558b96d987c4f785125bff2351a4a7ea9aab5c1c66f9911823d243');
 
 -- --------------------------------------------------------
 

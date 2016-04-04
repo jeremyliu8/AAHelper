@@ -1,6 +1,16 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <?php
-    session_start();
+
+session_start();
+
+require_once 'includes/db_connect.php';
+require_once 'includes/functions.php';
+
+if (!logged_in()) {
+  header("location: index.php");
+}
+
+
 // studentid of selected student
 $stunum = $_SESSION["studentid"];
 

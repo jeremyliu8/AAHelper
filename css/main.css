@@ -5,7 +5,8 @@ html{
 body {
     text-align:center;
     margin: 0;
-    /*background-image: url("../img/sunset.jpg");*/
+    background-image: url("../img/sunset.jpg");
+    background-position: -200px -200px;
 }
 
 /****************************************
@@ -13,14 +14,14 @@ Login Page
 *****************************************/
 
 .form{
-    background-color: #f8f8f8;
+    background-color:rgba(255, 255, 255, 0.5);
     padding: 20px;
-    border-radius:10px;
+    border-radius:15px;
     margin: 0 auto;
 }
 
 #login {
-    width: 350px;
+    width: 300px;
 }
 
 /****************************************
@@ -28,8 +29,8 @@ New User Page
 *****************************************/
 
 #newuser {
-    width: 700px;
-    border-radius: 10px;
+    width: 800px;
+    border-radius: 0px;
     margin: auto;
 }
 
@@ -43,8 +44,12 @@ p {
     color: #999;
 }
 
-h1, a, li:hover{
+h1, a, li:hover {
     color: #00bfff;
+}
+
+h1.title {
+    color: rgba(255, 255, 255, 0.80);
 }
 
 /* Text Field Configurations */
@@ -176,5 +181,5 @@ h2.success {
 
 p.error {
     color: #ee0000;
-    margin-top: 0;
+    margin: 0;
 }

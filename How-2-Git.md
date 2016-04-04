@@ -58,6 +58,12 @@ For all of the `$ git commands` that you see in this document, do not copy the '
 3. Make sure to fetch and pull often so you can have an updated copy of everyone's work while you add your own stuff!
 
 
+###How to remove all deleted files:
+
+Sometimes when you stage for commit, you have to specifically 'add' the removed files so they all the changes will be tracked and appear on the repository. If you run the following piece of code in the terminal, it will automatically untrack all deleted files that were previously tracked:
+
+`git ls-files --deleted -z | xargs -0 git rm `
+
 ####That should be everything you need to know! ...for now! 
 
 
