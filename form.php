@@ -17,6 +17,10 @@
     <![endif]-->
 </head>
 <body>
+
+<!-- Check login status -->
+<?php include_once 'login.php'; ?>
+
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -551,6 +555,8 @@
 </div>
   </div>
 </div>
+<center><a href="includes/logout.php">Logout</a></center>
+
   <hr>
 <footer class="text-center">
   <div class="container">
