@@ -1,29 +1,22 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <?php
-
-session_start();
-
-require_once 'includes/db_connect.php';
-require_once 'includes/functions.php';
-
-if (!logged_in()) {
-  header("location: index.php");
-}
-
-
+    session_start();
 // studentid of selected student
 $stunum = $_SESSION["studentid"];
 
 //open database
-$fulldb = mysql_connect('localhost', 'root', '');
+require_once 'includes/db_connect.php';
+require_once 'includes/functions.php';
 
-mysql_select_db('aahelper', $fulldb);
+if (!logged_in()) {
+  header("Location: index.php");
+}
 
 $studentinfo = "SELECT * FROM student where studentid='$stunum'";
 
-$studentstuff = mysql_query($studentinfo);
+$studentstuff = $connection->query($studentinfo);
 
-while ($row = mysql_fetch_object($studentstuff)) {
+while ($row = $studentstuff->fetch_array()) {
 ?>
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid"> 
@@ -31,7 +24,7 @@ while ($row = mysql_fetch_object($studentstuff)) {
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand">
       <?php 
-      $studentmajor = $row->major;
+      $studentmajor = $row['major'];
       if($studentmajor == "CS"){
       	echo "Computer Science";
       }
@@ -48,12 +41,12 @@ while ($row = mysql_fetch_object($studentstuff)) {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a>
-        <?php	echo $row->fname;
+        <?php	echo $row['fname'];
         		echo " ";
-				echo $row->lname; ?>
+				echo $row['lname']; ?>
         </a></li>
         <li>&nbsp;</li>
-        <li><a><?php echo $row->studentid; ?></a></li>
+        <li><a><?php echo $row['studentid']; ?></a></li>
       </ul>
     </div>
   </div>
@@ -67,7 +60,7 @@ while ($row = mysql_fetch_object($studentstuff)) {
 
 $coursehistory = "SELECT * FROM studentcourse where studentid='$stunum'";
 
-$result = mysql_query($coursehistory);
+$result = $connection->query($coursehistory);
 
 //magic
 
@@ -86,29 +79,29 @@ $result = mysql_query($coursehistory);
   	</tr>
 <?php
 
-while ($row = mysql_fetch_object($result)) {
+while ($row = $result->fetch_array()) {
 	?> <tr> <td> <?php
-	echo $row->courseid;
+	echo $row['courseid'];
 	?> </td> <?php
 	?> <td> <?php
-	echo $row->grade;
+	echo $row['grade'];
 	?> </td> <?php
-	$tt = $row->termtaken;
-	$ttyear = substr($tt, 0, 4);
-	$ttterm = substr($tt, 4);
+	$termAndYear = $row['termtaken'];
+	$yearTaken = substr($termAndYear, 0, 4);
+	$termTaken = substr($termAndYear, 4);
 	?> <td> <?php
-	if($ttterm == 1){
+	if($termTaken == 1){
 		echo "Spring";
 	}
-	elseif($ttterm == 3){
+	elseif($termTaken == 4){
 		echo "Summer";
 	}
-	elseif($ttterm == 7){
+	elseif($termTaken == 7){
 		echo "Fall";
 	}
 	?> </td> <?php
 	?> <td> <?php
-	echo $ttyear;
+	echo $yearTaken;
 	?> </td> <?php
 }
 
@@ -122,7 +115,7 @@ while ($row = mysql_fetch_object($result)) {
 </div> 
 
 <?php
-  mysql_close($fulldb);
+  $connection->close();
 ?>
 
 <!-- include footer -->
