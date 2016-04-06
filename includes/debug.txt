@@ -1,4 +1,0 @@
-Debugging File.
-
-[Apr 04, 2016 01:11:45 AM] Parameter is not in the correct format.
-[Apr 04, 2016 02:02:25 AM] $row = Is an object and cannot be written.
