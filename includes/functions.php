@@ -71,6 +71,7 @@ function login($connection) {
 					$_SESSION['lname'] = $storedStudent['lname'];
 					$_SESSION['studentid'] = $storedStudent['studentid'];
 					$_SESSION['major'] = $storedStudent['major'];
+					$_SESSION['startyear'] = $storedStudent['startyear'];
 					$_SESSION['password'] = $storedStudent['password'];
 					$_SESSION['loggedin'] = TRUE;
 					$_SESSION['timeout'] = time();
