@@ -19,10 +19,11 @@
     $email = $_POST['email'];
     $password = hash('SHA512', $_POST['password']);
     $major = $_POST['major'];
+    $startyear = $_POST['startyear'];
     $advid = $_POST['advisor'];
 
-    $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, advid) 
-            VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$advid')";
+    $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, startyear, advid) 
+            VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$startyear', '$advid')";
     
     if ($connection->query($newStudent) === TRUE) {
         echo "<h2 class='success'>&#x2713; New Student Added Successfully!</h2>";

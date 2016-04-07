@@ -26,6 +26,7 @@
                     <option value="CS">Computer Science</option>
                     <option value="CIS">Computer Information Systems</option>
                 </select></p>
+                <p><input type="text" class="input" name="startyear" placeholder="Start Year" required></p>
                 <p><select name="advisor" class="dropdown" required>
                     <option value="default">Select your advisor...</option>
                     <?php                         
