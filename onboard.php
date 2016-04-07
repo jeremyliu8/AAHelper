@@ -14,7 +14,7 @@
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1>Create a New Account</h1>
+        <h1 class="title">Create a New Account</h1>
         <div id="newuser" class ="form">
             <form method="post" action="create.php">
                 <p><input type="text" class="input" name="studid" placeholder="Student ID" required></p>

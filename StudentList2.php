@@ -15,7 +15,7 @@
   		header("Location: index.php");
 	}
 
-	write_to_file($_SESSION, "Session Variables");
+	//write_to_file($_SESSION, "Session Variables");
 
 	$studentMajor = $_SESSION['major'];
 	if ($studentMajor == 'CS') {
@@ -25,7 +25,7 @@
 		$studentMajor = "Computer Information Systems";
 	}
 
-	write_to_file($studentMajor, "\$studentMajor");
+	//write_to_file($studentMajor, "\$studentMajor");
 
 ?>
 <nav class="navbar navbar-default navbar-inverse">
@@ -89,11 +89,16 @@
 					$sql_coursemajor = "SELECT * 
 						FROM courses JOIN major 
 						ON courses.courseid = major.courseid 
-						WHERE majorid = 'CS';";
+						WHERE majorid = ?;";
 
-					$sql_coursemajor = $connection->query($sql_coursemajor);
+					$sql_coursemajor = $connection->prepare($sql_coursemajor);
+					$sql_coursemajor->bind_param('s', $_SESSION['major']);
+					$sql_coursemajor->execute();
+
+					$result = $sql_coursemajor->get_result();
+
 					//takes every courseid with correct major
-					while ($row = $sql_coursemajor->fetch_array()) {
+					while ($row = $result->fetch_array()) {
 						// $currentCourse = $row['courseid'];
 						// echo $currentCourse;
 						?>

@@ -6,7 +6,7 @@ body {
     text-align:center;
     margin: 0;
     background-image: url("../img/sunset.jpg");
-    background-position: 100% 100%;
+    background-position: -200px -200px;
 }
 
 /****************************************
@@ -112,56 +112,40 @@ a:hover{
     padding: 9px 30px;
     color: #00bfff;
     font-size: 18pt;
-    background-color: #f8f8f8;
+    background-color:rgba(255, 255, 255, 0.2);
     font-weight: 300;
 }
 
 .go:hover{
     background-color: #00bfff;
+    transition:.5s;
+    text-decoration: none;
     color: #fff;
-    transition:.7s;
 }
 
 .searchbtn {
     background-color: #fff;
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li{
-    background-color: #00bfff;
-    border-radius: 10px;
+div.home {
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    font-size: 12pt;
-    font-weight: 300;
-    border:2px solid #00bfff;
+    margin: auto;
 }
 
-li:hover{
-    background-color: #fff;
-    border:2px solid #00bfff;
-    font-weight: 300;
-    transition: .5s;
+.listbuttons {
+    margin: 20px auto 0px;
+    display:block;
+    width: 80%;
+    min-width: 200px;
 }
 
-a.button{
-    color: #fff;
-    width: 200px;
-    margin: 30px auto 0;
-    display: block;
+a.logout {
+    clear: left;
+    margin-top: 50px;
 }
 
-a.button:hover{
-    text-decoration: none;
-}
-
-select {
-   color: white;
-}
 
 /****************************************
 Error Page 
