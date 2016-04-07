@@ -29,6 +29,8 @@
         <a href="form1.html" class="button"><li>Plan Advising</li></a>
         <a href="https://calendar.google.com/" class="button"><li>View Your Calendar</li></a>
     </ul>
+	
+	<center><a href="includes/logout.php">Logout</a></center>
 
 </body>
 </html>
