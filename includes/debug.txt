@@ -2,3 +2,515 @@ Debugging File.
 
 [Apr 04, 2016 01:11:45 AM] Parameter is not in the correct format.
 [Apr 04, 2016 02:02:25 AM] $row = Is an object and cannot be written.
+[Apr 06, 2016 12:04:24 PM] Stored Student = Array
+(
+    [studentid] => 002352690
+    [fname] => Carson
+    [lname] => Hall
+    [email] => carsonhall11@apu.edu
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [major] => CS
+    [advid] => 002112222
+)
+
+[Apr 06, 2016 12:04:24 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1459969464
+)
+
+[Apr 06, 2016 12:04:24 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:21:27 PM] Stored Student = Array
+(
+    [studentid] => 002352690
+    [fname] => Carson
+    [lname] => Hall
+    [email] => carsonhall11@apu.edu
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [major] => CS
+    [advid] => 002112222
+)
+
+[Apr 06, 2016 10:21:27 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:21:27 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:22:35 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:22:35 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:22:45 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:22:45 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:22:55 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:22:55 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:31:00 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:31:00 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:32:49 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:32:49 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:33:04 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:33:04 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:36:32 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:36:32 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:36:44 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:36:44 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:42:59 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:42:59 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:43:22 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:43:22 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:46:55 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:46:55 PM] $studentMajor = Computer Science
+[Apr 06, 2016 10:48:10 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 10:48:10 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:22:11 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460006487
+)
+
+[Apr 06, 2016 11:22:11 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:22:17 PM] Stored Student = Array
+(
+    [studentid] => 002352690
+    [startyear] => 2012
+    [fname] => Carson
+    [lname] => Hall
+    [email] => carsonhall11@apu.edu
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [major] => CS
+    [advid] => 002112222
+)
+
+[Apr 06, 2016 11:22:17 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460010137
+    [startyear] => 2012
+)
+
+[Apr 06, 2016 11:22:17 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:22:26 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460010137
+    [startyear] => 2012
+)
+
+[Apr 06, 2016 11:22:26 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:24:15 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460010137
+    [startyear] => 2012
+)
+
+[Apr 06, 2016 11:24:15 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:27:51 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460010137
+    [startyear] => 2012
+)
+
+[Apr 06, 2016 11:27:51 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:34:45 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [loggedin] => 1
+    [timeout] => 1460010137
+    [startyear] => 2012
+)
+
+[Apr 06, 2016 11:34:45 PM] $studentMajor = Computer Science
+[Apr 06, 2016 11:50:28 PM] Stored Student = Array
+(
+    [studentid] => 002352690
+    [startyear] => 2012
+    [fname] => Carson
+    [lname] => Hall
+    [email] => carsonhall11@apu.edu
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [major] => CS
+    [advid] => 002112222
+)
+
+[Apr 06, 2016 11:50:28 PM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 06, 2016 11:50:28 PM] $studentMajor = Computer Science
+[Apr 07, 2016 12:18:59 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:18:59 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:20:33 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:20:33 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:21:49 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:21:49 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:24:47 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:24:47 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:24:52 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:24:52 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:26:24 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:26:24 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:28:59 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:28:59 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:29:16 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:29:16 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:29:54 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:29:54 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:30:16 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:30:16 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:30:29 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:30:29 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:31:56 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:31:56 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:32:19 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:32:19 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:34:08 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:34:08 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:34:09 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:34:09 AM] $studentMajor = Computer Science
+[Apr 07, 2016 12:37:02 AM] Session Variables = Array
+(
+    [fname] => Carson
+    [lname] => Hall
+    [studentid] => 002352690
+    [major] => CS
+    [password] => c00173f77fad04ac84a82059b77350763b69388e6ae8814f5ceb2f17fd7e8e17ae14b9fabb3d7d9509c763161db15dfa42050f2942263faedb071b783cf7197f
+    [startyear] => 2012
+    [loggedin] => 1
+    [timeout] => 1460011828
+)
+
+[Apr 07, 2016 12:37:02 AM] $studentMajor = Computer Science

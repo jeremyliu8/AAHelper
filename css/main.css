@@ -6,7 +6,7 @@ body {
     text-align:center;
     margin: 0;
     background-image: url("../img/sunset.jpg");
-    background-position: -200px -200px;
+    background-position: 100% 100%;
 }
 
 /****************************************
@@ -182,4 +182,11 @@ h2.success {
 p.error {
     color: #ee0000;
     margin: 0;
+}
+
+/****************************************
+Form Page
+*****************************************/
+font1 {
+    font-size: 30px;
 }
