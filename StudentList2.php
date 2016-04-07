@@ -96,6 +96,38 @@
 					while ($row = $sql_coursemajor->fetch_array()) {
 						// $currentCourse = $row['courseid'];
 						// echo $currentCourse;
+
+						//check if course has been taken
+						$grad = "";
+						$id = $row['courseid'];
+						$checksql = "SELECT * FROM studentcourse WHERE courseid = '$id'";
+						$checkque = $connection->query($checksql);
+
+						if($taken = $checkque->fetch_array()){
+							$year = substr($taken['termtaken'], 0,4);
+							$term = substr($taken['termtaken'], 4,1);
+							//years off start date (0 = start year)
+							$remain = $year - $_SESSION['startyear'];
+							$remain = $remain*3;
+
+							$termpos = 0;
+							if($term == 1){
+								//spring 2
+								$termpos = 2;
+							} elseif ($term == 3){
+								//summer 3
+								$termpos = 3;
+							} elseif ($term == 7){
+								//fall 1
+								$termpos = 1;
+							}
+							//spaces form base (3)
+							$takenspace = $remain + $termpos;
+
+							$grad = $taken['grade'];
+						}
+						else{ }
+
 						?>
 						<tr> 
 							<td> <?php echo $row['classname']; ?> </td>
@@ -109,14 +141,26 @@
 								$summer = substr($termnum, 2,1);
 							
 							//replicate for all 5 years
-							for($x = 0; $x < 5; $x++){ ?>
-							<td <?php echo validate_term($fall); ?> ></td>
-							<td <?php echo validate_term($spring); ?> ></td>
-							<td <?php echo validate_term($summer); ?> ></td>
-							<?php } ?>
+							//for($x = 0; $x < 5; $x++){ ?>
+							<td <?php echo validate_term($fall, $takenspace, 1); ?> ></td>
+							<td <?php echo validate_term($spring, $takenspace, 2); ?> ></td>
+							<td <?php echo validate_term($summer, $takenspace, 3); ?> ></td>
+							<td <?php echo validate_term($fall, $takenspace, 4); ?> ></td>
+							<td <?php echo validate_term($spring, $takenspace, 5); ?> ></td>
+							<td <?php echo validate_term($summer, $takenspace, 6); ?> ></td>
+							<td <?php echo validate_term($fall, $takenspace, 7); ?> ></td>
+							<td <?php echo validate_term($spring, $takenspace, 8); ?> ></td>
+							<td <?php echo validate_term($summer, $takenspace, 9); ?> ></td>
+							<td <?php echo validate_term($fall, $takenspace, 10); ?> ></td>
+							<td <?php echo validate_term($spring, $takenspace, 11); ?> ></td>
+							<td <?php echo validate_term($summer, $takenspace, 12); ?> ></td>
+							<td <?php echo validate_term($fall, $takenspace, 13); ?> ></td>
+							<td <?php echo validate_term($spring, $takenspace, 14); ?> ></td>
+							<td <?php echo validate_term($summer, $takenspace, 15); ?> ></td>
+							<?php $takenspace = null;// } ?>
 							<!-- end replication -->
 
-							<td> <?php echo "A"; ?> </td> 
+							<td> <?php echo $grad; ?> </td> 
 						</tr> 
 						<?php
 					} ?>
