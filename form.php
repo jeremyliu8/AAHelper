@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+  session_start(); 
+  include_once 'includes/db_connect.php'; 
+  include_once 'includes/functions.php';
+?>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -17,10 +23,6 @@
     <![endif]-->
 </head>
 <body>
-
-<!-- Check login status -->
-<?php include_once 'login.php'; ?>
-
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->

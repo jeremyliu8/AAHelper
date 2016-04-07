@@ -9,7 +9,12 @@
     require_once 'includes/functions.php';
 
     if (logged_in()) {
-        header("location: StudentList2.php");
+        if (isset($_SESSION['advid'])) {
+            header("location: advisor_home.php");
+        }
+        else {
+            header("location: StudentList2.php");
+        }
     }
 
     // Login using the connection set up in db_connect.php
@@ -34,7 +39,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Advising Helper 1.0</title>
+        <title>Compass | Login</title>
+        <link rel="icon" href="img/71-compass.png">
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
     </head>
@@ -58,10 +64,7 @@
         <!-- include footer -->
         <?php 
             include 'footer.php'; 
-            // $_SESSION = array();
-  
-            // // Destroy session 
-            // session_destroy();
+
         ?>
     </body>   
 </html>
