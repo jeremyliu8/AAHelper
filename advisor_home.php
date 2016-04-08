@@ -53,9 +53,9 @@
             <input id="submit" type="submit" value="Search" class="go">
         </form>
     
-        <a href="form.php" class="go listbuttons fast">Plan Advising</a>
+        <a href="#" class="go listbuttons fast">Plan Advising</a>
         <a href="add_class.php" class="go listbuttons fast">Add a Class</a>
-        <a href="form.php" class="go listbuttons fast">Manage Accounts</a>
+        <a href="#" class="go listbuttons fast">Manage Accounts</a>
     </div>    
 
     <center><a href="includes/logout.php">Logout</a></center>

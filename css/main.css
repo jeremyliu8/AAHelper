@@ -160,7 +160,7 @@ h2.error {
 }
 
 h2.success {
-    color: #00ee00;
+    color: rgba(255, 255, 255, 0.80);
 }
 
 p.error {

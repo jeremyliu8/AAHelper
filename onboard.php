@@ -16,7 +16,7 @@
     <body>
         <h1 class="title">Create a New Account</h1>
         <div id="newuser" class ="form">
-            <form method="post" action="create.php">
+            <form method="post" action="createStudent.php">
                 <p><input type="text" class="input" name="studid" placeholder="Student ID" required></p>
                 <p><input type="text" class="input" name="fname" placeholder="First Name" required></p>
                 <p><input type="text" class="input" name="lname" placeholder="Last Name" required></p>

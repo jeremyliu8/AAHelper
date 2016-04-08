@@ -40,7 +40,7 @@
           <li> </li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a>
+	      <li><a class="text-primary">
 	        <?php	
 	        	echo $_SESSION['fname'];
 	        	echo " ";
