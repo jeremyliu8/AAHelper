@@ -51,7 +51,7 @@
     } else {
         echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the class!</h2>";
         echo "<p>Error: " . $connection->error . "</p>";
-        echo "<p>Click <a href='advisor_home.php'>here</a> to go back</p>";
+        echo "<p>Click <a href='add_class.php'>here</a> to go try again</p>";
     }
 
 

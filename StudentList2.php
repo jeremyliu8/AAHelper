@@ -70,8 +70,6 @@
 			    	<?php } ?>
 				    <th></th>
 				</tr>
-
-
 				  	<tr>
 					    <th>Class Name</th>
 					    <th>Course ID</th>
@@ -99,39 +97,53 @@
 
 					//takes every courseid with correct major
 					while ($row = $result->fetch_array()) {
-						// $currentCourse = $row['courseid'];
-						// echo $currentCourse;
 
 						//check if course has been taken
-						$grad = "";
-						$id = $row['courseid'];
-						$checksql = "SELECT * FROM studentcourse WHERE courseid = '$id'";
-						$checkque = $connection->query($checksql);
+						$grade = "";
+						$courseid = $row['courseid'];
+						$findCourseTakenSql = " SELECT * 
+												FROM ( 
+													SELECT courseid, grade, termtaken, status 
+													FROM studentcourse JOIN student 
+													ON studentcourse.studentid = student.studentid 
+													where student.studentid = ?
+												) as courseHistory 
+												where courseid = ?";
+						
+						$courseTakenStmt = $connection->prepare($findCourseTakenSql);
+						$courseTakenStmt->bind_param('ss', $_SESSION['studentid'], $courseid);
+						$courseTakenStmt->execute();
 
-						if($taken = $checkque->fetch_array()){
+						$courseTaken = $courseTakenStmt->get_result();
+
+						if($taken = $courseTaken->fetch_assoc()){
+							//write_to_file($taken, "\$taken");
 							$year = substr($taken['termtaken'], 0,4);
 							$term = substr($taken['termtaken'], 4,1);
 							//years off start date (0 = start year)
 							$remain = $year - $_SESSION['startyear'];
-							$remain = $remain*3;
+							$remain = $remain * 3;
 
 							$termpos = 0;
-							if($term == 1){
-								//spring 2
-								$termpos = 2;
-							} elseif ($term == 3){
-								//summer 3
-								$termpos = 3;
-							} elseif ($term == 7){
-								//fall 1
+							if ($term == 7){
+								// 7 represents Fall
+								// Fall is in position 1
 								$termpos = 1;
+							} elseif ($term == 1){
+								// 1 Represents Spring
+								// Spring is in position 2
+								$termpos = 2;
+							} elseif ($term == 4){
+								// 4 represents Summer
+								// Summer is in position 3
+								$termpos = 3;
 							}
+
 							//spaces form base (3)
 							$takenspace = $remain + $termpos;
 
-							$grad = $taken['grade'];
+							$grade = $taken['grade'];
 						}
-						else{ }
 
 						?>
 						<tr> 
@@ -144,7 +156,8 @@
 								$fall = substr($termnum, 0,1);
 								$spring = substr($termnum, 1,1);
 								$summer = substr($termnum, 2,1);
-							
+
+
 							//replicate for all 5 years
 							//for($x = 0; $x < 5; $x++){ ?>
 							<td <?php echo validate_term($fall, $takenspace, 1); ?> ></td>
@@ -165,10 +178,10 @@
 							<?php $takenspace = null;// } ?>
 							<!-- end replication -->
 
-							<td> <?php echo $grad; ?> </td> 
+							<td> <?php echo $grade; ?> </td> 
 						</tr> 
 						<?php
-					} ?>
+					} // End of row, loop through again until end of table! ?>
 					</table>
 				</div>
 				<center><a href="includes/logout.php">Logout</a></center>
