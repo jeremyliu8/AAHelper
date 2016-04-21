@@ -184,9 +184,23 @@ p.error {
     margin: 0;
 }
 
+
 /****************************************
 Form Page
 *****************************************/
 font1 {
     font-size: 30px;
+}
+
+.butts {
+    color:white;
+}
+
+.mynavbar {
+    background-color: red;
+    color: white;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0.4;
 }

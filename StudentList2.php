@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
 </head>
 <?php 
 	session_start();
@@ -15,7 +16,7 @@
   		header("Location: index.php");
 	}
 
-	write_to_file($_SESSION, "Session Variables");
+	//write_to_file($_SESSION, "Session Variables");
 
 	$studentMajor = $_SESSION['major'];
 	if ($studentMajor == 'CS') {
@@ -25,14 +26,14 @@
 		$studentMajor = "Computer Information Systems";
 	}
 
-	write_to_file($studentMajor, "\$studentMajor");
+	//write_to_file($studentMajor, "\$studentMajor");
 
 ?>
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
-      <a class="navbar-brand"> <?php echo $studentMajor; ?> </a>
+      <a class="butts"> <?php echo $studentMajor; ?> </a>
     </div>
 	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    <ul class="nav navbar-nav">
@@ -40,7 +41,7 @@
           <li> </li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a>
+	      <li class="mynavbar"><a>
 	        <?php	
 	        	echo $_SESSION['fname'];
 	        	echo " ";
