@@ -1,9 +1,4 @@
 <!DOCTYPE html> 
-	<?php	
-		require_once 'includes/functions.php';
-		require_once 'includes/db_connect.php';
-	?>
-
 	<html> 
 	  <head> 
 	    <meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1"> 
@@ -68,6 +63,7 @@
 				</div>
 		    </div>
 		</div>
+
 <?php
 
 /**

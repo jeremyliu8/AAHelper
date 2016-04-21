@@ -46,7 +46,7 @@ function login($connection) {
 				$connection->close();
 
 				// Take them to the advisor homepage
-				header("Location: form.php");
+				header("Location: advisor_home.php");
     		}
     		else {
 				// Set the passwordErr variable to display on the login page
@@ -71,6 +71,7 @@ function login($connection) {
 					$_SESSION['lname'] = $storedStudent['lname'];
 					$_SESSION['studentid'] = $storedStudent['studentid'];
 					$_SESSION['major'] = $storedStudent['major'];
+					$_SESSION['startyear'] = $storedStudent['startyear'];
 					$_SESSION['password'] = $storedStudent['password'];
 					$_SESSION['loggedin'] = TRUE;
 					$_SESSION['timeout'] = time();
@@ -78,7 +79,7 @@ function login($connection) {
 					$connection->close();
 
 					// Take them to the student homepage!
-					header("Location: StudentList2.php");
+					header("Location: form.php");
 				}
 				else {
 					$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";
@@ -180,10 +181,15 @@ function validate_input($input) {
 }
 
 //term checker (checks one int)
-function validate_term($termid){
+function validate_term($termid, $takenspace, $i){
 	if($termid == 1){
 		// available to take
-		return "";
+		if($takenspace==$i){
+			return "style='background-color:green;'";
+		} else {
+			return "";
+
+		}	
 	} else {
 		// Closed, toggle off.
 		return "style='background-color:black;'";
