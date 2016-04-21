@@ -22,6 +22,10 @@ jQuery(function ($) {
         $(this).toggleClass('highlight')
     })
 })
+$(".dropdown-menu li a").click(function(){
+  var selText = $(this).text();
+  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+});
 </script>
 <style>
 .test{
@@ -42,15 +46,14 @@ jQuery(function ($) {
 }
 }
 table.table-bordered td.t1{
-    width: 30px; 
-    height: 30px;
+    width: 35px; 
+    height: 35px;
 
 }
 div.d1{
   width: 35px;
   height: 35px;
 }
-
 th, td{
   text-align: center;
 }
@@ -119,10 +122,17 @@ th, td{
           <td colspan="2">Intro to Computer Science I</td>
           <td>MATH110</td>
           <td>4</td>
-			      <td class="t1">
-                <div class="d1">
-                    <input type="button" id="cs220button1" class="select";>
-                </div>
+			<td>
+          		<div class="btn-group">
+            		<button class="btn dropdown-toggle" name="cs220button1" data-toggle="dropdown">
+            		<span class="caret"></span>
+            		</button>
+            	  <ul class="dropdown-menu">
+                  	<li><a href="#">C</a></li>
+                  	<li><a href="#">IP</a></li>
+                  	<li><a href="#">F</a></li>
+            	  </ul>
+    			</div>
             </td>
             <td class="t1">
                <div class="d1">
