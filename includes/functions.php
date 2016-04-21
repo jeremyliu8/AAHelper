@@ -183,16 +183,15 @@ function validate_input($input) {
 //term checker (checks one int)
 function validate_term($termid, $takenspace, $i){
 	if($termid == 1){
-		// available to take
+		// Class already taken
 		if($takenspace==$i){
-			return "style='background-color:green;'";
-		} else {
-			return "";
-
+			return "taken";
+		} else { // Not taken, but available
+			return "available";
 		}	
 	} else {
 		// Closed, toggle off.
-		return "style='background-color:black;'";
+		return "closed";
 	}
 }
 

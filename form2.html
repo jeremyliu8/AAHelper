@@ -18,6 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/bootstrap-select.js"></script>
+
 <script>
 jQuery(function ($) {
     $('.select').click(function () {
@@ -41,7 +42,7 @@ select {
 select::-ms-expand {
     display: none;
 }
-}
+
 .test{
   width: 20px;
   height: 20px;
@@ -122,16 +123,16 @@ th, td{
           <td colspan="2">Intro to Computer Science I</td>
           <td>MATH110</td>
           <td>4</td>
-			<td>
+			    <td>
           		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
-  					<option title="C">Completed</option>
-  					<option title="IP">In Progress</option>
-  					<option title="P">Planned</option>
-  					<option title="F">Failed</option>
-				</select>
-            </td> 
+      					<option title="C" selected="selected">Completed</option>
+      					<option title="IP">In Progress</option>
+      					<option title="P">Planned</option>
+      					<option title="F">Failed</option>
+    				  </select>
+          </td> 
             <td>
-            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button2">
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
   					<option title="C">Completed</option>
   					<option title="IP">In Progress</option>
   					<option title="P">Planned</option>
@@ -139,7 +140,7 @@ th, td{
 				</select>
             </td>
             <td>
-                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button3">
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
   					<option title="C">Completed</option>
   					<option title="IP">In Progress</option>
   					<option title="P">Planned</option>
