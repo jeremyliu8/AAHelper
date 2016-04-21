@@ -99,6 +99,9 @@
 					$result = $sql_coursemajor->get_result();
 
 					//takes every courseid with correct major
+
+					$takenspace = null;
+					
 					while ($row = $result->fetch_array()) {
 
 						//check if course has been taken
