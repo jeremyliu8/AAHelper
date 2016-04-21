@@ -6,8 +6,6 @@
 
 	    <link rel="stylesheet" href="css/bootstrap.css">
 
-
-	    <!-- <script src="js/jquery-1.11.2.min.js"></script> -->
 	    <script   src="https://code.jquery.com/jquery-1.12.3.js"   integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="   crossorigin="anonymous"></script>
 	    <script src="js/jquery.searchable-1.1.0.min.js"></script>
 	    <script src="js/searchable.js"></script>
@@ -15,12 +13,6 @@
 	  <body> 
 	    <h3>Search Students</h3> 
 	    <p>You  may search by first name, last name, major, and student id</p> 
-	    <!-- <form method="get" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  id="searchform"> 
-	      <input  type="text" search="search"> 
-	      <input  type="submit" search="submit" value="Search"> 
-	    </form>  -->
-
-
 
 		<div class="container">    
 		    <div class="row">
@@ -40,72 +32,37 @@
 					    	</tr>
 					    </thead>
 				    	<tbody>
-					    	<tr>
-					    		<td>000</td>
-					    		<td>Jeremy</td>
-					    		<td>Liu</td>
-					    		<td>CS</td>
-					    	</tr>
-					    	<tr>
-					    		<td>001</td>
-					    		<td>Daniel</td>
-					    		<td>Nishijima</td>
-					    		<td>CS</td>
-					    	</tr>
-					    	<tr>
-					    		<td>002</td>
-					    		<td>Chris</td>
-					    		<td>Sissoyev</td>
-					    		<td>CIS</td>
-					    	</tr>
+				    		<?php
+								require_once 'includes/functions.php';
+								require_once 'includes/db_connect.php';
+
+								$array = "SELECT * 
+										 FROM student";
+								$result = $connection->query($array);
+
+								if ($result->num_rows > 0) {
+								    while ($row = $result->fetch_assoc()) {
+								        $fname = $row['fname'];
+								        $lname = $row['lname'];
+								        $studentid = $row['studentid'];
+								        $major = $row['major'];
+								        echo "<tr>";
+								        echo "<td><a href=advisorform.php?studentid=",urlencode($studentid),">$studentid</a></td>";
+								        echo "<td>$fname</td>";
+								        echo "<td>$lname</td>";
+								        echo "<td>$major</td>";
+								        echo "</tr>";
+								    }
+								}
+								$connection->close();
+							?>
 					    </tbody>
 				    </table>
 				</div>
 		    </div>
 		</div>
 
-<?php
 
-/**
-* login function
-* 
-* This function attempts to login the user
-* 
-* @params = mysqli object
-* returns = boolean (true if connected, false if not)
-*/
-
-	require_once 'includes/functions.php';
-	require_once 'includes/db_connect.php';
-
-
-
-
-
-// if($_SERVER["REQUEST_METHOD"] == "GET"){
-// 	$search = $_GET['search'];
-// 	$array = "SELECT fname, lname, studentid, major 
-// 			  WHERE fname LIKE '%?%' OR lname LIKE '%?%' OR studentid LIKE '%?%'";
-	
-// 	$preparedStatement = $connection->prepare($array);
-// 	$preparedStatement->bind_param('sss', $search, $search, $search);
-// 	$preparedStatement->execute();
-
-// 	while($row = $result->fetch_assoc()){ 
-//      	$fname = $row['fname']; 
-//      	$lname = $row['lname']; 
-//      	$studentid = $row['studentid'];
-//      	$major = $row['major'];
-
-// 		echo  "<ul>\n"; 
-// 		echo  "<li>" . $fname . " " . $lname .  "</li>\n"; 
-// 		echo  "<li>" . $studentid . "</li>\n"; 
-// 		echo  "<li>" . $major . "</li>\n"; 
-// 		echo  "</ul>"; 
-// 	}
-// }
-
-?>
 
 
 </body> 
