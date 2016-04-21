@@ -13,7 +13,7 @@
             header("location: advisor_home.php");
         }
         else {
-            header("location: StudentList2.php");
+            header("location: StudentList.php");
         }
     }
 
@@ -58,10 +58,12 @@
                         <fieldset class="form-group">
                             <label for="user">E-mail</label>  
                             <input type="text" id="user" class="form-control" name="user" placeholder="Enter E-mail" required>
+                            <?php echo $usernameErr; ?>
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="pass">Password</label>  
                             <input type="password" id="pass" class="form-control" name="password" placeholder="Enter Password" required>
+                            <?php echo $passwordErr; ?>
                         </fieldset>
                         <button type="submit" class="btn btn-lg btn-primary">Login</button>
                     </form>
