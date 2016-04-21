@@ -17,10 +17,9 @@
 	<title><?php echo $_SESSION['fname'] ?> | Home</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-inverse">
+    <nav class="navbar navbar-default navbar-custom">
         <div class="container-fluid"> 
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
@@ -45,25 +44,70 @@
             </div>
         </div>
     </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <div class ="text-center">
+            <div class="row extra-top">
+                <a href="#" class="btn btn-lg btn-primaryButts btn-block">Plan Advising</a>
+             </div>
+            <div class="row extra-top">
+                 <a href="#" class="btn btn-lg btn-primaryButts btn-block">Add A Class</a>
+            </div>
+            <div class="row extra-top">
+                 <a href="#" class="btn btn-lg btn-primaryButts btn-block">Manage Accounts</a>
+            </div>
+            <div class="extra-top">
+                 <a href="includes/logout.php" class="logout">Logout</a>
+            </div>
+        </div>
+     </div>
+    <div class="col-md-4">
+    </div>
 
-	<h1 class="title">Search For Your Students</h1>
-    <div class="home">    
-        <form id="searchbox" action="" method="get" accept-charset-'UTF-8'>
-            <input id="search" type="text" placeholder="#ID or Username" class="input">
-            <input id="submit" type="submit" value="Search" class="go">
-        </form>
-    
-        <a href="#" class="go listbuttons fast">Plan Advising</a>
-        <a href="add_class.php" class="go listbuttons fast">Add a Class</a>
-        <a href="#" class="go listbuttons fast">Manage Accounts</a>
-    </div>    
+    </div>
 
-    <center><a href="includes/logout.php">Logout</a></center>
-
-    <!-- include footer -->
+</div>       
+         <!-- include footer -->
     <center>
       <?php include 'footer.php'; ?>
     </center>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

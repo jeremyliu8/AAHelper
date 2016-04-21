@@ -30,14 +30,26 @@ h1.title{
     /*width: 100%;*/
 }
 
+.btn-primaryButts {
+    border-color: #00bfff;  
+    color: #fff;
+    background-color: #00bfff;
+}
 .btn-primary:hover {
     background-color: #00bfff;
-    transition:.5s;
+    transition: .5s;
     text-decoration: none;
     color: #fff;
     border-color: #00bfff;
 }
 
+.btn-primaryButts:hover {
+    background-color: #0099cc;
+    color: #fff;
+    transition: .5s;
+    text-decoration: none;
+    border-color: #0099cc;
+}
 
 
 /****************************************
@@ -115,15 +127,7 @@ a.link:hover{
     text-decoration: underline;
 }
 
-.listbuttons {
-    margin: 20px auto 0px;
-    display:block;
-    width: 80%;
-    min-width: 200px;
-}
-
 a.logout {
-    clear: left;
     margin-top: 50px;
 }
 
@@ -160,7 +164,10 @@ th, td{
   text-align: center;
 }
 
-
+.navbar-custom {
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+}
 /****************************************
 Error Page 
 *****************************************/
