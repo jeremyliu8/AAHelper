@@ -16,19 +16,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="js/custom.js"></script>
 <script>
-jQuery(function ($) {
-    $('.select').click(function () {
-        $(this).toggleClass('highlight')
-    })
-})
+// jQuery(function ($) {
+//     $('.select').click(function () {
+//         $(this).toggleClass('highlight')
+//     })
+// })
 </script>
 <style>
 .test{
   width: 20px;
   height: 20px;
 }
-
 .select {
   width: 100%;
   height: 100%;
@@ -36,7 +36,6 @@ jQuery(function ($) {
   padding: 0;
   background: none;
 }
-
 .select.highlight {
     background:rgb(26, 255, 0);
 }
@@ -44,13 +43,11 @@ jQuery(function ($) {
 table.table-bordered td.t1{
     width: 30px; 
     height: 30px;
-
 }
 div.d1{
   width: 35px;
   height: 35px;
 }
-
 th, td{
   text-align: center;
 }
@@ -91,7 +88,7 @@ th, td{
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			<p class="table-bordered">Required Courses - 13 Courses Below (42 CS Units Required)</p>
+            <p class="table-bordered">Required Courses - 13 Courses Below (42 CS Units Required)</p>
         </a>
       </h4>
     </div>
@@ -109,7 +106,7 @@ th, td{
           <th colspan="2">3rd yr</th>
           <th colspan="2">4th yr</th>
           <th colspan="2">5th yr</th>
-		  
+          
           <th>Grade</th>
         </tr>
       </thead>
@@ -119,7 +116,7 @@ th, td{
           <td colspan="2">Intro to Computer Science I</td>
           <td>MATH110</td>
           <td>4</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs220button1" class="select";>
                 </div>
@@ -169,7 +166,7 @@ th, td{
                     <input type="button" id="cs220button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs220grade" size="2"></form></td>
+            <td><form><input type="text" name="cs220grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS225</th>
@@ -226,14 +223,14 @@ th, td{
                     <input type="button" id="cs225button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs225grade" size="2"></form></td>
+            <td><form><input type="text" name="cs225grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">CS250</th>
           <td colspan="2">Operating Systems</td>
           <td>CS225</td>
           <td>3</td>
-			    <td class="t1">
+                <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs250button1" class="select";>
                 </div>
@@ -283,14 +280,14 @@ th, td{
                     <input type="button" id="cs250button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs250grade" size="2"></form></td>
+            <td><form><input type="text" name="cs250grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS330</th>
           <td colspan="2">Systems Programming I</td>
           <td>CS225</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs330button1" class="select";>
                 </div>
@@ -340,7 +337,7 @@ th, td{
                     <input type="button" id="cs330button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs330grade" size="2"></form></td>
+            <td><form><input type="text" name="cs330grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS340</th>
@@ -397,14 +394,14 @@ th, td{
                     <input type="button" id="cs340button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs340grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs340grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS350</th>
           <td colspan="2">Discrete Structures</td>
           <td>CS220, MATH151 or 161</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs350button1" class="select";>
                 </div>
@@ -454,14 +451,14 @@ th, td{
                     <input type="button" id="cs350button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs350grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs350grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS380</th>
           <td colspan="2">Data Structures</td>
           <td>CS225, 350</td>
           <td>3</td>
-			    <td class="t1">
+                <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs380button1" class="select";>
                 </div>
@@ -511,14 +508,14 @@ th, td{
                     <input type="button" id="cs380button10" class="select";>
                 </div>
             </td>
-			    <td><form><input type="text" name="cs380grade" size="2"></form></td>
+                <td><form><input type="text" name="cs380grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS390</th>
           <td colspan="2">Database Mgt Systems</td>
           <td>CS225, 350</td>
           <td>3</td>
-			    <td class="t1">
+                <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs390button1" class="select";>
                 </div>
@@ -568,7 +565,7 @@ th, td{
                     <input type="button" id="cs390button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs390grade" size="2"></form></td>
+            <td><form><input type="text" name="cs390grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS400</th>
@@ -625,14 +622,14 @@ th, td{
                     <input type="button" id="cs400button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs400grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs400grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS445</th>
           <td colspan="2">Computer Architecture & Org</td>
           <td>CS225, 350</td>
           <td>4</td>
-			    <td class="t1">
+                <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs445button1" class="select";>
                 </div>
@@ -689,7 +686,7 @@ th, td{
           <td colspan="2">Numerical Analysis</td>
           <td>CS220, MATH161</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs455button1" class="select";>
                 </div>
@@ -739,14 +736,14 @@ th, td{
                     <input type="button" id="cs455button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs455grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs455grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS470</th>
           <td colspan="2">Software Engineering I</td>
           <td>CS380, 390</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs470button1" class="select";>
                 </div>
@@ -796,14 +793,14 @@ th, td{
                     <input type="button" id="cs470button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs470grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs470grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS480</th>
           <td colspan="2">Software Engineering II</td>
           <td>CS470</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs480button1" class="select";>
                 </div>
@@ -853,7 +850,7 @@ th, td{
                     <input type="button" id="cs480button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs480grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs480grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>
@@ -864,7 +861,7 @@ th, td{
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			<p class="table-bordered">Upper Division Computer Science Electives - 3 Courses Below (9 Elective Units Required)</p>
+            <p class="table-bordered">Upper Division Computer Science Electives - 3 Courses Below (9 Elective Units Required)</p>
         </a>
       </h4>
     </div>
@@ -941,7 +938,7 @@ th, td{
                     <input type="button" id="cs363button10" class="select";>
                 </div>
             </td>
-			<td><form><input type="text" name="cs363grade" size="2"></form></td>
+            <td><form><input type="text" name="cs363grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS420</th>
@@ -998,14 +995,14 @@ th, td{
                     <input type="button" id="cs420button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs420grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs420grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">CS425</th>
           <td colspan="2">Fundamentals of Network Admin</td>
           <td>CS420</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs425button1" class="select";>
                 </div>
@@ -1055,14 +1052,14 @@ th, td{
                     <input type="button" id="cs425button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs425grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs425grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS430</th>
           <td colspan="2">Artificial Intelligence</td>
           <td>CS225</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs430button1" class="select";>
                 </div>
@@ -1112,14 +1109,14 @@ th, td{
                     <input type="button" id="cs430button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="cs430grade" size="2"></form></td>
+                  <td><form><input type="text" name="cs430grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS435</th>
           <td colspan="2">Advanced Database</td>
           <td>CS330, 390</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs435button1" class="select";>
                 </div>
@@ -1169,14 +1166,14 @@ th, td{
                     <input type="button" id="cs435button10" class="select";>
                 </div>
             </td>
-			     <td><form><input type="text" name="cs435grade" size="2"></form></td>
+                 <td><form><input type="text" name="cs435grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">&nbsp;</th>
           <td colspan="2"><strong>UDWI: Upper Division Writing Intensive</strong></td>
           <td>&nbsp;</td>
           <td>3</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="udwibutton1" class="select";>
                 </div>
@@ -1226,14 +1223,14 @@ th, td{
                     <input type="button" id="udwibutton10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="udwigrade" size="2"></form></td>
+                  <td><form><input type="text" name="udwigrade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS496</th>
           <td colspan="2">Senior Seminar: Ethics in CS</td>
           <td>UDWI</td>
           <td>3</td>
-			     <td class="t1">
+                 <td class="t1">
                 <div class="d1">
                     <input type="button" id="cs496button1" class="select";>
                 </div>
@@ -1283,7 +1280,7 @@ th, td{
                     <input type="button" id="cs496button10" class="select";>
                 </div>
             </td>
-			     <td><form><input type="text" name="cs496grade" size="2"></form></td>
+                 <td><form><input type="text" name="cs496grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>
@@ -1294,7 +1291,7 @@ th, td{
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-			<p class="table-bordered">Math Track and Requirements- 2 Math Courses Below (9 Math Units Required)</p>
+            <p class="table-bordered">Math Track and Requirements- 2 Math Courses Below (9 Math Units Required)</p>
         </a>
       </h4>
     </div>
@@ -1371,7 +1368,7 @@ th, td{
                     <input type="button" id="math110button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="math110grade" size="2"></form></td>
+                  <td><form><input type="text" name="math110grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">MATH150</th>
@@ -1428,7 +1425,7 @@ th, td{
                     <input type="button" id="math150button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="math150grade" size="2"></form></td>
+                  <td><form><input type="text" name="math150grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">MATH161</th>
@@ -1485,14 +1482,14 @@ th, td{
                     <input type="button" id="math161button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="math161grade" size="2"></form></td>
+                  <td><form><input type="text" name="math161grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">MATH162</th>
           <td colspan="2">Calculus II</td>
           <td>MATH161</td>
           <td>4</td>
-			      <td class="t1">
+                  <td class="t1">
                 <div class="d1">
                     <input type="button" id="math162button1" class="select";>
                 </div>
@@ -1542,7 +1539,7 @@ th, td{
                     <input type="button" id="math162button10" class="select";>
                 </div>
             </td>
-			      <td><form><input type="text" name="grade" size="2"></form></td>
+                  <td><form><input type="text" name="grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>

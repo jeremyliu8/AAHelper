@@ -186,7 +186,7 @@
 				</div>
 				<center><a href="includes/logout.php">Logout</a></center>
 	  	</div>
-		</div>
+	</div>
   </div>
 </div> 
 
