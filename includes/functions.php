@@ -79,7 +79,7 @@ function login($connection) {
 					$connection->close();
 
 					// Take them to the student homepage!
-					header("Location: StudentList2.php");
+					header("Location: form.php");
 				}
 				else {
 					$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";
@@ -188,8 +188,8 @@ function validate_term($termid, $takenspace, $i){
 			return "style='background-color:green;'";
 		} else {
 			return "";
-		}
-		
+
+		}	
 	} else {
 		// Closed, toggle off.
 		return "style='background-color:black;'";

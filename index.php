@@ -13,7 +13,7 @@
             header("location: advisor_home.php");
         }
         else {
-            header("location: StudentList.php");
+            header("location: form.php");
         }
     }
 
