@@ -34,14 +34,6 @@
         echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
     }
 
-    // catch(PDOException $e) {
-    //     echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the student!</h2>";
-    //     if (strpos($e, "1062 Duplicate entry")) {
-    //         echo "<p>NOTICE: Looks like the student you are adding is already in use!</p>";
-    //     }
-    //     echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
-    // }
-
     $connection->close();
     ?>
     <!-- include footer -->

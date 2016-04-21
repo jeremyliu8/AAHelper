@@ -1,12 +1,6 @@
-html{
-    font-family:Lato;
-}
-
 body {
-    text-align:center;
-    margin: 0;
     background-image: url("../img/sunset.jpg");
-    background-position: 100% 100%;
+    background-position: -200px -200px;
 }
 
 /****************************************
@@ -14,154 +8,158 @@ Login Page
 *****************************************/
 
 .form{
-    background-color:rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    border-radius:15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius:5px;
     margin: 0 auto;
 }
 
-#login {
-    width: 300px;
+h1.title{
+    margin: 40px;
+    font-size: 40pt;
 }
+
+.signup {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: #00bfff;  
+    color: #00bfff;
+    /*width: 100%;*/
+}
+
+.btn-primary:hover {
+    background-color: #00bfff;
+    transition:.5s;
+    text-decoration: none;
+    color: #fff;
+    border-color: #00bfff;
+}
+
+
 
 /****************************************
 New User Page 
 *****************************************/
 
-#newuser {
-    width: 800px;
-    border-radius: 0px;
-    margin: auto;
+/* Bootstrap tweaks */
+
+.extra-top {
+    margin-top: 15px;
+} 
+
+
+h2.title {
+    margin: 40px;
+    font-size: 30pt;
 }
 
-#newuser .input{
-    width: 40%;
+/*.custom_select {
+    color: #999;
+    background-color: #fff;
+    border: 1px solid #ccc;
 }
+
+.custom_select:hover {
+    background-color: #ddd;
+}
+
+.custom_select:active {
+    background-color: #ddd;
+}*/
+
 
 
 /* Colors */
 p {
     color: #999;
+    font-size: 11pt;
 }
 
-h1, a, li:hover {
+a, li:hover {
     color: #00bfff;
 }
 
-h1.title {
+h1.title, h2.title {
     color: rgba(255, 255, 255, 0.80);
-}
 
-/* Text Field Configurations */
-.input {
-    padding: 10px;
-    font-size: 16pt;
-    color: #757575;
-    /*margin-bottom: 10px;*/
-    border: 1px solid #eee;
-    outline: 1px solid #eff4f7;
-    font-weight: 300;
-}
-
-.input:focus {
-    border-color: #00bfff;
-    outline-color: #00bfff;
-    outline-offset: 0;
-	/*box-shadow:0 0 3px #00bfff,
-				0 0 6px #00bfff;
-				0 0 9px #00bfff;*/
-    transition: .5s;
-}
-
-.dropdown {
-    border-radius: 0;
-    font-size: 16pt;
-    line-height: 1.42857143;
-    width: 43%;
-    height: 50px;
-    font-weight: 300;
-    color: #757575;
-    background-color: white;
-    border: 2px solid #eee;
 }
 
 
-h1{
-    margin: 40px;
-    font-size: 40pt;
-    font-weight:700;
-}
+
+/****************************************
+Footer 
+*****************************************/
 
 footer{
-    margin-top: 200px;
+    margin-top: 100px;
     color: gray;
     font-weight:400;
     font-size: 9pt;
 }
 
-a {
+
+
+/****************************************
+Links and Buttons 
+*****************************************/
+
+a.link {
     text-decoration: none;
 }
 
-a:hover{
+a.link:hover{
+    color: #00bfff;
     text-decoration: underline;
 }
 
-.go{
-    border:1px solid #00bfff;
-    padding: 9px 30px;
-    color: #00bfff;
-    font-size: 18pt;
-    background-color: #f8f8f8;
-    font-weight: 300;
+.listbuttons {
+    margin: 20px auto 0px;
+    display:block;
+    width: 80%;
+    min-width: 200px;
 }
 
-.go:hover{
-    background-color: #00bfff;
-    color: #fff;
-    transition:.7s;
+a.logout {
+    clear: left;
+    margin-top: 50px;
 }
 
-.searchbtn {
-    background-color: #fff;
+
+
+/****************************************
+Form Page
+*****************************************/
+
+.test{
+  width: 20px;
+  height: 20px;
+}
+.select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+}
+.select.highlight {
+    background:rgb(26, 255, 0);
+}
+}
+table.table-bordered td.t1{
+    width: 30px; 
+    height: 30px;
+}
+div.d1{
+  width: 35px;
+  height: 35px;
+}
+th, td{
+  text-align: center;
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li{
-    background-color: #00bfff;
-    border-radius: 10px;
-    padding: 20px;
-    font-size: 12pt;
-    font-weight: 300;
-    border:2px solid #00bfff;
-}
-
-li:hover{
-    background-color: #fff;
-    border:2px solid #00bfff;
-    font-weight: 300;
-    transition: .5s;
-}
-
-a.button{
-    color: #fff;
-    width: 200px;
-    margin: 30px auto 0;
-    display: block;
-}
-
-a.button:hover{
-    text-decoration: none;
-}
-
-select {
-   color: white;
-}
 
 /****************************************
 Error Page 
@@ -176,31 +174,10 @@ h2.error {
 }
 
 h2.success {
-    color: #00ee00;
+    color: rgba(255, 255, 255, 0.80);
 }
 
 p.error {
     color: #ee0000;
     margin: 0;
-}
-
-
-/****************************************
-Form Page
-*****************************************/
-font1 {
-    font-size: 30px;
-}
-
-.butts {
-    color:white;
-}
-
-.mynavbar {
-    background-color: red;
-    color: white;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    opacity: 0.4;
 }
