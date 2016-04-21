@@ -16,12 +16,12 @@
 
 		<div class="container">    
 		    <div class="row">
-		        <div class="col-lg-4 col-lg-offset-4">
+		        <div class="col-md-4">
 		            <input type="search" id="search" value="" class="form-control" placeholder="Search using Fuzzy searching">
 		        </div>
 		    </div>
 		    <div class="row">
-		    	<div class="col-md-12">
+		    	<div class="col-md-6">
 				    <table id="studentList" class="table">
 					    <thead>	
 					    	<tr>
@@ -47,7 +47,7 @@
 								        $studentid = $row['studentid'];
 								        $major = $row['major'];
 								        echo "<tr>";
-								        echo "<td><a href=advisorform.php?studentid=",urlencode($studentid),">$studentid</a></td>";
+								        echo "<td><a href=advisor_form.php?studentid=",urlencode($studentid),">$studentid</a></td>";
 								        echo "<td>$fname</td>";
 								        echo "<td>$lname</td>";
 								        echo "<td>$major</td>";

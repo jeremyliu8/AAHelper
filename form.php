@@ -33,50 +33,17 @@
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	    <![endif]-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="js/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>
-
-	<style type="text/css">
-		select {
-		   appearance: none;
-		   -webkit-appearance: none;
-		   -moz-appearance: none;
-		   text-indent: 1px;
-		   text-overflow: '';
-		   background: url("custom image") no-repeat right center;
-		}
-		select::-ms-expand {
-		    display: none;
-		}
-
-		.test{
-		  width: 20px;
-		  height: 20px;
-		}
-		table.table-bordered td.t1{
-		    width: 30px; 
-		    height: 30px;
-		}
-		div.d1{
-		  width: 30px;
-		  height: 30px;
-		}
-		th, td{
-		  text-align: center;
-		}
-	</style>
 </head>
+
 <body background="img/sunset.jpg">
-<nav class="navbar navbar-default navbar-inverse">
+<nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
@@ -104,7 +71,7 @@
 
 <!-- the table -->
 <div class="container">
-  <div class="row">
+  <div class="row extra-top">
     <div class="col-lg-12">
       <div class="jumbotron">
 	  		<div class="panel panel-default">
@@ -214,70 +181,76 @@
 									case "fall":
 										if (validate_term($fall, $takenspace, $i) == "taken") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" " name="cs220button1">
+												<select class="selectpicker" data-width="100%" title=" ">
 													<option title="C" selected="selected">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
 													<option title="F">Failed</option>
+													<option title="">Unselect</option>
 												</select>
-											</td> <?php
+											</td><?php
 										} elseif (validate_term($fall, $takenspace, $i) == "available") {
-											echo "<td>";
-												echo "<select class='selectpicker' data-width='100%' title=' '>";
-													echo "<option title='C'>Completed</option>";
-													echo "<option title='IP'>In Progress</option>";
-													echo "<option title='P'>Planned</option>";
-													echo "<option title='F'>Failed</option>";
-												echo "</select>";
-											echo "</td>";
+											?><td>
+												<select class='selectpicker' data-width='100%' title=' '>
+													<option title='C'>Completed</option>
+													<option title='IP'>In Progress</option>
+													<option title='P'>Planned</option>
+													<option title='F'>Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
 										} else {
-											echo "<td style='background-color:black;'></td>";
+											?><td style='background-color:black;'></td><?php
 										}
 										break;
 									case "spring":
 										if (validate_term($spring, $takenspace, $i) == "taken") {
-											echo "<td>";
-												echo "<select class='selectpicker' data-width='100%' title=' '>";
-													echo "<option title='C' selected='selected'>Completed</option>";
-													echo "<option title='IP'>In Progress</option>";
-													echo "<option title='P'>Planned</option>";
-													echo "<option title='F'>Failed</option>";
-												echo "</select>";
-											echo "</td>";
+											?><td>
+												<select class='selectpicker' data-width='100%' title=' '>
+													<option title='C' selected='selected'>Completed</option>
+													<option title='IP'>In Progress</option>
+													<option title='P'>Planned</option>
+													<option title='F'>Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
 										} elseif (validate_term($spring, $takenspace, $i) == "available") {
-											echo "<td>";
-												echo "<select class='selectpicker' data-width='100%' title=' '>";
-													echo "<option title='C'>Completed</option>";
-													echo "<option title='IP'>In Progress</option>";
-													echo "<option title='P'>Planned</option>";
-													echo "<option title='F'>Failed</option>";
-												echo "</select>";
-											echo "</td>";
+											?><td>
+												<select class='selectpicker' data-width='100%' title=' '>
+													<option title='C'>Completed</option>
+													<option title='IP'>In Progress</option>
+													<option title='P'>Planned</option>
+													<option title='F'>Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
 										} else {
-											echo "<td style='background-color:black;'></td>";
+											?><td style='background-color:black;'></td><?php
 										}
 										break;
 									case "summer":
 										if (validate_term($summer, $takenspace, $i) == "taken") {
-											echo "<td>";
-												echo "<select class='selectpicker' data-width='100%' title=' '>";
-													echo "<option title='C' selected='selected'>Completed</option>";
-													echo "<option title='IP'>In Progress</option>";
-													echo "<option title='P'>Planned</option>";
-													echo "<option title='F'>Failed</option>";
-												echo "</select>";
-											echo "</td>";
+											?><td>
+												<select class='selectpicker' data-width='100%' title=' '>
+													<option title='C' selected='selected'>Completed</option>
+													<option title='IP'>In Progress</option>
+													<option title='P'>Planned</option>
+													<option title='F'>Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
 										} elseif (validate_term($summer, $takenspace, $i) == "available") {
-											echo "<td>";
-												echo "<select class='selectpicker' data-width='100%' title=' '>";
-													echo "<option title='C'>Completed</option>";
-													echo "<option title='IP'>In Progress</option>";
-													echo "<option title='P'>Planned</option>";
-													echo "<option title='F'>Failed</option>";
-												echo "</select>";
-											echo "</td>";
+											?><td>
+												<select class='selectpicker' data-width='100%' title=' '>
+													<option title='C'>Completed</option>
+													<option title='IP'>In Progress</option>
+													<option title='P'>Planned</option>
+													<option title='F'>Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
 										} else {
-											echo "<td style='background-color:black;'></td>";
+											?><td style='background-color:black;'></td><?php
 										}
 										break;
 								}

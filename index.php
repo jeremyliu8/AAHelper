@@ -65,7 +65,7 @@
                             <input type="password" id="pass" class="form-control" name="password" placeholder="Enter Password" required>
                             <?php echo $passwordErr; ?>
                         </fieldset>
-                        <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                        <button type="submit" class="btn-lg btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="col-md-4">
