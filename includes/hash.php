@@ -5,7 +5,7 @@
 	 * that we knew, but wanted to hash to keep it secure.
 	 */
 
-	$password = hash('SHA512', "string");
+	$password = hash('SHA512', "drsamrocks");
 	echo $password;
 
 ?>
