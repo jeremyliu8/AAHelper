@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form</title>
+
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
 </head>
 <?php 
 	session_start();
@@ -11,9 +21,9 @@
 	require_once 'includes/db_connect.php';
 	require_once 'includes/functions.php';
 
-	//if (!logged_in()) {
-  	//	header("Location: index.php");
-	//}
+	if (!logged_in()) {
+  		header("Location: index.php");
+	}
 
 	//use this 
 	$studentid = $_GET['studentid'];
@@ -50,6 +60,7 @@
 	//write_to_file($studentMajor, "\$studentMajor");
 
 ?>
+<body>
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid"> 
     <div class="navbar-header">
@@ -76,14 +87,13 @@
   </div>
 </nav>
 
-<body background="img/sunset.jpg">
 <!-- the table -->
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <div class="jumbotron">
 	  		<div class="panel panel-default">
-			    <table class="table table-condensed table-bordered">
+			    <table class="table-bordered">
 			    <tr>
 			    <?php $startyear = $stustartyear; ?>
 				    <th colspan="3"></th>
@@ -183,33 +193,106 @@
 								$summer = substr($termnum, 2,1);
 
 
-							//replicate for all 5 years
-							//for($x = 0; $x < 5; $x++){ ?>
-							<td <?php echo validate_term($fall, $takenspace, 1); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 2); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 3); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 4); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 5); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 6); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 7); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 8); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 9); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 10); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 11); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 12); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 13); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 14); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 15); ?> ></td>
-							<?php $takenspace = null;// } ?>
+							$currentTerm = "fall";
+							for ($i=1; $i <= 15; $i++) { 
+								switch ($currentTerm) {
+									case "fall":
+										if (validate_term($fall, $takenspace, $i) == "taken") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C" selected="selected">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} elseif (validate_term($fall, $takenspace, $i) == "available") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} else {
+											?><td style="background-color:black;"></td><?php
+										}
+										break;
+									case "spring":
+										if (validate_term($spring, $takenspace, $i) == "taken") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C" selected="selected">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} elseif (validate_term($spring, $takenspace, $i) == "available") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} else {
+											?><td style="background-color:black;"></td><?php
+										}
+										break;
+									case "summer":
+										if (validate_term($summer, $takenspace, $i) == "taken") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C" selected="selected">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} elseif (validate_term($summer, $takenspace, $i) == "available") {
+											?><td>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
+													<option title="">Unselect</option>
+												</select>
+											</td><?php
+										} else {
+											?><td style="background-color:black;"></td><?php
+										}
+										break;
+								}
+
+								// Cycle through the terms
+								if ($currentTerm == "fall") {
+									$currentTerm = "spring";
+								} elseif ($currentTerm == "spring") {
+									$currentTerm = "summer";
+								} elseif ($currentTerm == "summer") {
+									$currentTerm = "fall";
+								}
+							}
+
+							$takenspace = null; ?>
 							<!-- end replication -->
 
-							<td> <?php echo $grade; ?> </td> 
+							<td><input type="text" name="cs" size="3" maxlength="2" value="<?php echo $grade; ?>"></td> 
 						</tr> 
 						<?php
 					} // End of row, loop through again until end of table! ?>
 					</table>
 				</div>
-				<center><a href="searchtest.php">TAKE ME BACK</a></center>
+				<center><a href="advisor_home.php">Take Me Back!</a></center>
 	  	</div>
 	</div>
   </div>

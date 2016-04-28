@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <?php 
 	session_start();
 
@@ -26,8 +26,6 @@
 ?>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Form</title>
 
@@ -42,7 +40,7 @@
 	<script src="js/bootstrap-select.js"></script>
 </head>
 
-<body background="img/sunset.jpg">
+<body>
 <nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid"> 
     <div class="navbar-header">
@@ -191,66 +189,66 @@
 											</td><?php
 										} elseif (validate_term($fall, $takenspace, $i) == "available") {
 											?><td>
-												<select class='selectpicker' data-width='100%' title=' '>
-													<option title='C'>Completed</option>
-													<option title='IP'>In Progress</option>
-													<option title='P'>Planned</option>
-													<option title='F'>Failed</option>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
 													<option title="">Unselect</option>
 												</select>
 											</td><?php
 										} else {
-											?><td style='background-color:black;'></td><?php
+											?><td style="background-color:black;"></td><?php
 										}
 										break;
 									case "spring":
 										if (validate_term($spring, $takenspace, $i) == "taken") {
 											?><td>
-												<select class='selectpicker' data-width='100%' title=' '>
-													<option title='C' selected='selected'>Completed</option>
-													<option title='IP'>In Progress</option>
-													<option title='P'>Planned</option>
-													<option title='F'>Failed</option>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C" selected="selected">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
 													<option title="">Unselect</option>
 												</select>
 											</td><?php
 										} elseif (validate_term($spring, $takenspace, $i) == "available") {
 											?><td>
-												<select class='selectpicker' data-width='100%' title=' '>
-													<option title='C'>Completed</option>
-													<option title='IP'>In Progress</option>
-													<option title='P'>Planned</option>
-													<option title='F'>Failed</option>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
 													<option title="">Unselect</option>
 												</select>
 											</td><?php
 										} else {
-											?><td style='background-color:black;'></td><?php
+											?><td style="background-color:black;"></td><?php
 										}
 										break;
 									case "summer":
 										if (validate_term($summer, $takenspace, $i) == "taken") {
 											?><td>
-												<select class='selectpicker' data-width='100%' title=' '>
-													<option title='C' selected='selected'>Completed</option>
-													<option title='IP'>In Progress</option>
-													<option title='P'>Planned</option>
-													<option title='F'>Failed</option>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C" selected="selected">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
 													<option title="">Unselect</option>
 												</select>
 											</td><?php
 										} elseif (validate_term($summer, $takenspace, $i) == "available") {
 											?><td>
-												<select class='selectpicker' data-width='100%' title=' '>
-													<option title='C'>Completed</option>
-													<option title='IP'>In Progress</option>
-													<option title='P'>Planned</option>
-													<option title='F'>Failed</option>
+												<select class="selectpicker" data-width="100%" title=" ">
+													<option title="C">Completed</option>
+													<option title="IP">In Progress</option>
+													<option title="P">Planned</option>
+													<option title="F">Failed</option>
 													<option title="">Unselect</option>
 												</select>
 											</td><?php
 										} else {
-											?><td style='background-color:black;'></td><?php
+											?><td style="background-color:black;"></td><?php
 										}
 										break;
 								}
@@ -268,7 +266,7 @@
 							$takenspace = null; ?>
 							<!-- end replication -->
 
-							<td><input type="text" name="cs" size="2" value="<?php echo $grade; ?>"></td> 
+							<td><input type="text" name="cs" size="3" maxlength="2" value="<?php echo $grade; ?>"></td> 
 						</tr> 
 						<?php
 					} // End of row, loop through again until end of table! ?>

@@ -102,7 +102,7 @@
                                     $studentid = $row['studentid'];
                                     $major = $row['major'];
                                     echo "<tr>";
-                                    echo "<td><a href=advisorform.php?studentid=",urlencode($studentid),">$studentid</a></td>";
+                                    echo "<td><a href=advisor_form.php?studentid=",urlencode($studentid),">$studentid</a></td>";
                                     echo "<td>$fname</td>";
                                     echo "<td>$lname</td>";
                                     echo "<td>$major</td>";
