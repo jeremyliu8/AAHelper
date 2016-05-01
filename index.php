@@ -24,6 +24,7 @@
     // set error messages to null if no errors
     $usernameErr = "";
     $passwordErr = "";
+    $username = "";
     
     if (isset($_SESSION['usernameErr'])) {
         $usernameErr = $_SESSION['usernameErr'];
@@ -31,7 +32,9 @@
     }
     if (isset($_SESSION['passwordErr'])) {
         $passwordErr = $_SESSION['passwordErr'];
+        $username = $_SESSION['username'];
         unset($_SESSION['passwordErr']);
+        unset($_SESSION['username']);
     }
 ?>
 
@@ -57,7 +60,7 @@
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                         <fieldset class="form-group">
                             <label for="user">E-mail</label>  
-                            <input type="text" id="user" class="form-control" name="user" placeholder="Enter E-mail" required>
+                            <input type="text" id="user" class="form-control" name="user" placeholder="Enter E-mail" value="<?php if (!empty($username)) { echo $username; } ?>" required>
                             <?php echo $usernameErr; ?>
                         </fieldset>
                         <fieldset class="form-group">

@@ -61,7 +61,7 @@
 
 ?>
 <body>
-<nav class="navbar navbar-default navbar-inverse">
+<nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
@@ -90,7 +90,7 @@
 <!-- the table -->
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 col-md-12 col-xs-12">
       <div class="jumbotron">
 	  		<div class="panel panel-default">
 			    <table class="table-bordered">
@@ -103,15 +103,15 @@
 				    <th></th>
 				</tr>
 				  	<tr>
-					    <th>Class Name</th>
-					    <th>Course ID</th>
-					    <th>units</th>
+					    <th class="className table-title">Class Name</th>
+					    <th class="table-title">ID</th>
+					    <th class="table-title">units</th>
 					    <?php for($x = 0; $x < 5; $x++){ ?>
-						    <th>F</th>
-						    <th>S</th>
-						    <th><i class="fa fa-sun-o"></i></th>
+						    <th class="term-width">F</th>
+						    <th class="term-width">S</th>
+						    <th class="term-width"><i class="fa fa-sun-o"></i></th>
 					    <?php } ?>
-					    <th>Course Grade</th>
+					    <th class="table-title">Grade</th>
 				  	</tr>
 
 					<?php
@@ -131,19 +131,84 @@
 
 					$takenspace = null;
 					
+					// While loop loops through every class for that major, populates it with prereqs and coreqs
+					// Then checks to see if the specified student has taken any of these classes.
 					while ($row = $result->fetch_array()) {
+
+						// Check for course's pre-requisite classes
+						$courseid = $row['courseid'];
+						$prereqs = "";
+						$checkPrereqSql = "	SELECT prereqid 
+											FROM prereq 
+											WHERE courseid = ?";
+
+						$checkPrereqStmt = $connection->prepare($checkPrereqSql);
+						$checkPrereqStmt->bind_param('s', $courseid);
+						$checkPrereqStmt->execute();
+
+						$prereqResult = $checkPrereqStmt->get_result();
+						
+						if ($prereqResult->num_rows > 0) {
+        					while ($currentPrereq = $prereqResult->fetch_assoc()) {
+        						$prereqs .= $currentPrereq['prereqid'] . " ";
+        					}
+        				}
+
+        				$prereqs = trim($prereqs);
+
+        				// Check for course's co-requisite classes
+        				$coreqs = "";
+
+        				$checkCoreqSql = "	SELECT coreqid 
+											FROM coreq 
+											WHERE courseid = ?";
+
+						$checkCoreqStmt = $connection->prepare($checkCoreqSql);
+						$checkCoreqStmt->bind_param('s', $courseid);
+						$checkCoreqStmt->execute();
+
+						$coreqResult = $checkCoreqStmt->get_result();
+						
+						if ($coreqResult->num_rows > 0) {
+        					while ($currentCoreq = $coreqResult->fetch_assoc()) {
+        						$coreqs .= $currentCoreq['coreqid'] . " ";
+        					}
+        				}
+
+        				$coreqs = trim($coreqs);
+
+
+        				// Check for courses that require this course to be taken first
+        				$requirementFor = "";
+
+        				$checkReqSql = "	SELECT courseid 
+											FROM prereq 
+											WHERE prereqid = ?";
+
+						$checkReqStmt = $connection->prepare($checkReqSql);
+						$checkReqStmt->bind_param('s', $courseid);
+						$checkReqStmt->execute();
+
+						$reqResult = $checkReqStmt->get_result();
+						
+						if ($reqResult->num_rows > 0) {
+        					while ($currentReq = $reqResult->fetch_assoc()) {
+        						$requirementFor .= $currentReq['courseid'] . " ";
+        					}
+        				}
+
+        				$requirementFor = trim($requirementFor);
 
 						//check if course has been taken
 						$grade = "";
-						$courseid = $row['courseid'];
 						$findCourseTakenSql = " SELECT * 
 												FROM ( 
 													SELECT courseid, grade, termtaken, status 
 													FROM studentcourse JOIN student 
 													ON studentcourse.studentid = student.studentid 
-													where student.studentid = ?
-												) as courseHistory 
-												where courseid = ?";
+													WHERE student.studentid = ?
+												) AS courseHistory 
+												WHERE courseid = ?";
 						
 						$courseTakenStmt = $connection->prepare($findCourseTakenSql);
 						$courseTakenStmt->bind_param('ss', $studentid, $courseid);
@@ -152,24 +217,19 @@
 						$courseTaken = $courseTakenStmt->get_result();
 
 						if($taken = $courseTaken->fetch_assoc()){
-							//write_to_file($taken, "\$taken");
 							$year = substr($taken['termtaken'], 0,4);
 							$term = substr($taken['termtaken'], 4,1);
-							//years off start date (0 = start year)
 							$remain = $year - $stustartyear;
 							$remain = $remain * 3;
 
 							$termpos = 0;
-							if ($term == 7){
-								// 7 represents Fall
+							if ($term == 7){ // 7 represents Fall
 								// Fall is in position 1
 								$termpos = 1;
-							} elseif ($term == 1){
-								// 1 Represents Spring
+							} elseif ($term == 1){ // 1 Represents Spring
 								// Spring is in position 2
 								$termpos = 2;
-							} elseif ($term == 4){
-								// 4 represents Summer
+							} elseif ($term == 4){ // 4 represents Summer
 								// Summer is in position 3
 								$termpos = 3;
 							}
@@ -182,9 +242,9 @@
 
 						?>
 						<tr> 
-							<td> <?php echo $row['classname']; ?> </td>
-							<td> <?php echo $row['courseid']; ?> </td> 
-							<td> <?php echo $row['units']; ?> </td> 
+							<td class="className table-title"> <?php echo $row['classname']; ?> </td>
+							<td class="table-title"> <?php echo $row['courseid']; ?> </td> 
+							<td class="table-title"> <?php echo $row['units']; ?> </td> 
 							<?php
 								//break up terms
 								$termnum = $row['term'];
@@ -199,7 +259,12 @@
 									case "fall":
 										if (validate_term($fall, $takenspace, $i) == "taken") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker" 
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>"
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>"
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C" selected="selected">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
@@ -209,7 +274,12 @@
 											</td><?php
 										} elseif (validate_term($fall, $takenspace, $i) == "available") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker" 
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>"
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>"
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
@@ -224,7 +294,12 @@
 									case "spring":
 										if (validate_term($spring, $takenspace, $i) == "taken") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker"
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>" 
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>" 
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C" selected="selected">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
@@ -234,7 +309,12 @@
 											</td><?php
 										} elseif (validate_term($spring, $takenspace, $i) == "available") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker" 
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>" 
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>" 
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
@@ -249,7 +329,12 @@
 									case "summer":
 										if (validate_term($summer, $takenspace, $i) == "taken") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker" 
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>" 
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>" 
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C" selected="selected">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>
@@ -259,7 +344,12 @@
 											</td><?php
 										} elseif (validate_term($summer, $takenspace, $i) == "available") {
 											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
+												<select class="selectpicker" 
+														data-width="100%" 
+														title=" "
+														data-prereqs="<?php if (!empty($prereqs)){ echo $prereqs; } ?>" 
+														data-coreqs="<?php if (!empty($coreqs)){ echo $coreqs; } ?>" 
+														data-requirementfor="<?php if (!empty($requirementFor)){ echo $requirementFor; } ?>">
 													<option title="C">Completed</option>
 													<option title="IP">In Progress</option>
 													<option title="P">Planned</option>

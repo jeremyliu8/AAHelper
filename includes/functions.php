@@ -51,6 +51,7 @@ function login($connection) {
     		else {
 				// Set the passwordErr variable to display on the login page
 				$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";
+				$_SESSION['username'] = $_POST['user'];
 				$connection->close();
     		}
     	}
@@ -63,7 +64,7 @@ function login($connection) {
 	    	$result = $stmt->get_result(); 
 
 	    	$storedStudent = $result->fetch_assoc();
-	    	write_to_file($storedStudent, "Stored Student");
+	    	// write_to_file($storedStudent, "Stored Student");
 			if (!empty($storedStudent)) {
 				if (hash_equals($password, $storedStudent['password'])) {
 					// That means the user is a student! Let's set the session variables...
@@ -83,6 +84,7 @@ function login($connection) {
 				}
 				else {
 					$_SESSION['passwordErr'] = "<p class='error'>* Incorrect password</p>";
+					$_SESSION['username'] = $_POST['user'];
 					$connection->close();
 
 				}

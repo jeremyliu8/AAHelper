@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php echo $_SESSION['fname'] ?> | Home</title>
+	<title><?php echo $_SESSION['fname'] . " " . $_SESSION['lname'] ?> | Home</title>
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -58,7 +58,7 @@
                 <a href="#" class="btn btn-lg btn-primaryButts btn-block">Plan Advising</a>
              </div>
             <div class="row extra-top">
-                 <a href="#" class="btn btn-lg btn-primaryButts btn-block">Add A Class</a>
+                 <a href="add_class.php" class="btn btn-lg btn-primaryButts btn-block">Add A Class</a>
             </div>
             <div class="row extra-top">
                  <a href="#" class="btn btn-lg btn-primaryButts btn-block">Manage Accounts</a>
