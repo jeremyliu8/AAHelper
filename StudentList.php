@@ -12,7 +12,7 @@
 
 	$result = $connection->query($students);
 
-	$numRows = mysqli_num_rows($result); 
+	$numRows = $result->num_rows; 
 	echo "<h1>" . $numRows . " Student" . ($numRows == 1 ? "" : "s") . " Available </h1>"; 
 
 	//display all students so advisor can pick a student and then
@@ -37,7 +37,7 @@
 	<?php
 	}
 
-    $connection->close();
+  	$connection->close();
 	?>
 	</table>
 	<input type="submit" name="submit" value="Submit"> 

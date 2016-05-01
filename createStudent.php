@@ -19,10 +19,11 @@
     $email = $_POST['email'];
     $password = hash('SHA512', $_POST['password']);
     $major = $_POST['major'];
+    $startyear = $_POST['startyear'];
     $advid = $_POST['advisor'];
 
-    $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, advid) 
-            VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$advid')";
+    $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, startyear, advid) 
+            VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$startyear', '$advid')";
     
     if ($connection->query($newStudent) === TRUE) {
         echo "<h2 class='success'>&#x2713; New Student Added Successfully!</h2>";
@@ -32,14 +33,6 @@
         echo "<p>Error: " . $connection->error . "</p>";
         echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
     }
-
-    // catch(PDOException $e) {
-    //     echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the student!</h2>";
-    //     if (strpos($e, "1062 Duplicate entry")) {
-    //         echo "<p>NOTICE: Looks like the student you are adding is already in use!</p>";
-    //     }
-    //     echo "<p>Click <a href='index.php'>here</a> to go back to the login page!</p>";
-    // }
 
     $connection->close();
     ?>

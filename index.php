@@ -9,7 +9,12 @@
     require_once 'includes/functions.php';
 
     if (logged_in()) {
-        header("location: StudentList2.php");
+        if (isset($_SESSION['advid'])) {
+            header("location: advisor_home.php");
+        }
+        else {
+            header("location: form.php");
+        }
     }
 
     // Login using the connection set up in db_connect.php
@@ -19,6 +24,7 @@
     // set error messages to null if no errors
     $usernameErr = "";
     $passwordErr = "";
+    $username = "";
     
     if (isset($_SESSION['usernameErr'])) {
         $usernameErr = $_SESSION['usernameErr'];
@@ -26,7 +32,9 @@
     }
     if (isset($_SESSION['passwordErr'])) {
         $passwordErr = $_SESSION['passwordErr'];
+        $username = $_SESSION['username'];
         unset($_SESSION['passwordErr']);
+        unset($_SESSION['username']);
     }
 ?>
 
@@ -34,34 +42,46 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Advising Helper 1.0</title>
+        <title>Compass | Login</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
+        
     </head>
     <body>
-        <div class="hello">
+        <div class="container">
+            <div class="row">
+                <h1 class="title text-center">Compass</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 form">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                        <fieldset class="form-group">
+                            <label for="user">E-mail</label>  
+                            <input type="text" id="user" class="form-control" name="user" placeholder="Enter E-mail" value="<?php if (!empty($username)) { echo $username; } ?>" required>
+                            <?php echo $usernameErr; ?>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="pass">Password</label>  
+                            <input type="password" id="pass" class="form-control" name="password" placeholder="Enter Password" required>
+                            <?php echo $passwordErr; ?>
+                        </fieldset>
+                        <button type="submit" class="btn-lg btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+            <div class="row text-center">
+                <p class="signup">If you do not have an account yet, <a class="link" href="onboard.php">click here</a></p>
+            </div>
+            <div class="row">  
+                <div class="text-center">
+                    <?php include_once "footer.php"; ?>
+                </div>
+            </div>
         </div>
-        <header>
-            <h1 class="title">Compass</h1>
-            <div id="login" class ="form">
-                <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" accept-charset='UTF-8'>
-                    <p><input type="text" class="input" name="user" placeholder="E-mail" required></p>
-                    <p><input type="password" class="input" name="password" placeholder="Password" required></p>
-                    <p><input type="submit" class="go" value="Login"></p>
-                </form>
-                <?php echo $usernameErr; ?>
-                <?php echo $passwordErr; ?>
-               </div>
-            <p>If you do not have an account yet, <a class="link" href="onboard.php">click here</a></p>
-        </header>
-        
-        <!-- include footer -->
-        <?php 
-            include 'footer.php'; 
-            // $_SESSION = array();
-  
-            // // Destroy session 
-            // session_destroy();
-        ?>
     </body>   
 </html>

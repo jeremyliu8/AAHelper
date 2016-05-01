@@ -10,53 +10,97 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Advising Helper 1.0</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+
+        <script src="js/bootstrap-select.js"/></script>
+        <script src="js/bootstrap.min.js"></script>
+
     </head>
     <body>
-        <h1>Create a New Account</h1>
-        <div id="newuser" class ="form">
-            <form method="post" action="create.php">
-                <p><input type="text" class="input" name="studid" placeholder="Student ID" required></p>
-                <p><input type="text" class="input" name="fname" placeholder="First Name" required></p>
-                <p><input type="text" class="input" name="lname" placeholder="Last Name" required></p>
-                <p><input type="text" class="input" name="email" placeholder="E-Mail" required></p>
-                <p><input type="password" class="input" name="password" placeholder="Password" required></p>
-                <p><select name="major" class="dropdown">
-                    <option value="CS">Computer Science</option>
-                    <option value="CIS">Computer Information Systems</option>
-                </select></p>
-                <p><select name="advisor" class="dropdown" required>
-                    <option value="default">Select your advisor...</option>
-                    <?php                         
-                        // SQL statement we want to execute
-                        $fetchAdvisors = "SELECT advid, fname, lname 
-                                          FROM advisor;";
-                        
-                        // store the result object
-                        $result = $connection->query($fetchAdvisors);
-                        
-                        $name = "";
-                        $advid = "";
+         <div class="container">
+            <div class="row">
+                <h2 class="title text-center">Create a New Account</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 form">
+                    <form method="post" action="createStudent.php">
+                        <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="studid" placeholder="Student ID" maxlength="9" required>
+                        </fieldset>
+                        <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                        </fieldset>
+                        <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                        </fieldset>
+                        <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="email" placeholder="Email" required>
+                        </fieldset>
+                        <fieldset class="form-group"> 
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </fieldset>
+                        <fieldset>
+                            <select class="selectpicker form-control" data-width="100%" name="major" title="Select Your Major...">
+                              <option value="CS">Computer Science</option>
+                              <option value="CIS">Computer Information Systems</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group"> 
+                            <input type="text" class="form-control extra-top" name="startyear" placeholder="Start Year" maxlength="4" required>
+                        </fieldset>
+                        <fieldset>
+                            <select class="selectpicker form-control" data-width="100%" name="advisor" title="Select Your Advisor...">
+                            <?php                         
+                                // SQL statement we want to execute
+                                $fetchAdvisors = "SELECT advid, fname, lname 
+                                                  FROM advisor;";
+                                
+                                // store the result object
+                                $result = $connection->query($fetchAdvisors);
+                                
+                                $name = "";
+                                $advid = "";
 
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $name = $row['fname'] . " " . $row['lname'];
-                                $advid = $row['advid'];
-                                trim($name); // trim off any whitespace
-                                echo "<option value='$advid'>$name</option>";
-                                $name = ""; // reset the name for next advisor.
-                            }
-                        }
-                        $connection->close();
-                    ?>
-                </select></p>
-                <p><input type="submit" class="go" value="Create!"></p>
-                <p>
-            </form>
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $name = $row['fname'] . " " . $row['lname'];
+                                        $advid = $row['advid'];
+                                        trim($name); // trim off any whitespace
+                                        echo "<option value='$advid'>$name</option>";
+                                        $name = ""; // reset the name for next advisor.
+                                    }
+                                }
+                                $connection->close();
+                            ?>
+                            </select>
+                        </fieldset>
+                        <div class ="text-center">
+                            <button type="submit" class="btn btn-lg btn-primary extra-top">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>    
+            <div class="row text-center extra-top">
+                <p>Already have an account? <a class="link" href="index.php">login here!</a></p>
+            </div>
+            <div class="row text-center extra-top">
+                <?php include_once "footer.php" ?>
+            </div>
         </div>
-        
-        <!-- include footer -->
-        <?php include 'footer.php'; ?>
     </body>   
 </html>
+
+
+
+
+        

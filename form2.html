@@ -8,7 +8,7 @@
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.css">
-
+<link rel="stylesheet" href="css/bootstrap-select.css">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -16,25 +16,49 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/bootstrap-select.js"></script>
+
 <script>
 jQuery(function ($) {
     $('.select').click(function () {
         $(this).toggleClass('highlight')
     })
 })
+$(".dropdown-menu li a").click(function(){
+  var selText = $(this).text();
+  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+});
 </script>
 <style>
+select {
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   text-indent: 1px;
+   text-overflow: '';
+   background: url("custom image") no-repeat right center;
+}
+select::-ms-expand {
+    display: none;
+}
+
 .test{
-width: 20px;
-height: 20px;
+  width: 20px;
+  height: 20px;
 }
-
-.select {
+table.table-bordered td.t1{
+    width: 30px; 
+    height: 30px;
 }
-
-.select.highlight {
-    background:rgb(26, 255, 0);
-}</style>
+div.d1{
+  width: 30px;
+  height: 30px;
+}
+th, td{
+  text-align: center;
+}
+</style>
 
 </head>
 <body>
@@ -71,16 +95,16 @@ height: 20px;
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			<p class="table-bordered">Required Courses - 13 Courses Below (42 CS Units Required)</p>
+            <p class="table-bordered">Required Courses - 13 Courses Below (42 CS Units Required)</p>
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-    <table class="table table-condensed table-bordered">
+    <table class= "table-bordered">
       <thead>
         <tr>
-          <th>Course ID </th>
+          <th>Course ID</th>
           <th colspan="2">Title </th>
           <th>Prereqs</th>
           <th>Units</th>
@@ -89,232 +113,1141 @@ height: 20px;
           <th colspan="2">3rd yr</th>
           <th colspan="2">4th yr</th>
           <th colspan="2">5th yr</th>
-		  
+          
           <th>Grade</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-		
           <th scope="row"><strong>CS220</strong><br></th>
           <td colspan="2">Intro to Computer Science I</td>
           <td>MATH110</td>
           <td>4</td>
-			<td><input type="button" id="cs220button1" class="select";></td>
-            <td><input type="button" id="cs220button2" class="select";></td>
-            <td><input type="button" id="cs220button3" class="select";></td>
-            <td><input type="button" id="cs220button4" class="select";></td>
-            <td><input type="button" id="cs220button5" class="select";></td>
-            <td><input type="button" id="cs220button6" class="select";></td>
-            <td><input type="button" id="cs220button7" class="select";></td>
-            <td><input type="button" id="cs220button8" class="select";></td>
-            <td><input type="button" id="cs220button9" class="select";></td>
-            <td><input type="button" id="cs220button10" class="select";></td>
-			<td><form><input type="text" name="cs220grade" size="2"></form></td>
+			    <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
+      					<option title="C" selected="selected">Completed</option>
+      					<option title="IP">In Progress</option>
+      					<option title="P">Planned</option>
+      					<option title="F">Failed</option>
+    				  </select>
+          </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs220button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs220grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS225</th>
           <td colspan="2">Intro to Computer Science II</td>
           <td>CS220</td>
           <td>4</td>
-            <td><input type="button" id="cs225button1" class="select";></td>
-            <td><input type="button" id="cs225button2" class="select";></td>
-            <td><input type="button" id="cs225button3" class="select";></td>
-            <td><input type="button" id="cs225button4" class="select";></td>
-            <td><input type="button" id="cs225button5" class="select";></td>
-            <td><input type="button" id="cs225button6" class="select";></td>
-            <td><input type="button" id="cs225button7" class="select";></td>
-            <td><input type="button" id="cs225button8" class="select";></td>
-            <td><input type="button" id="cs225button9" class="select";></td>
-            <td><input type="button" id="cs225button10" class="select";></td>
-			<td><form><input type="text" name="cs225grade" size="2"></form></td>
+            <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs225button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs225grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">CS250</th>
           <td colspan="2">Operating Systems</td>
           <td>CS225</td>
           <td>3</td>
-			<td><input type="button" id="cs250button1" class="select";></td>
-			<td><input type="button" id="cs250button2" class="select";></td>
-            <td><input type="button" id="cs250button3" class="select";></td>
-            <td><input type="button" id="cs250button4" class="select";></td>
-            <td><input type="button" id="cs250button5" class="select";></td>
-            <td><input type="button" id="cs250button6" class="select";></td>
-            <td><input type="button" id="cs250button7" class="select";></td>
-            <td><input type="button" id="cs250button8" class="select";></td>
-            <td><input type="button" id="cs250button9" class="select";></td>
-            <td><input type="button" id="cs250button10" class="select";></td>
-			<td><form><input type="text" name="cs250grade" size="2"></form></td>
+                <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs250button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs250grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS330</th>
           <td colspan="2">Systems Programming I</td>
           <td>CS225</td>
           <td>3</td>
-			<td><input type="button" id="cs330button1" class="select";></td>
-            <td><input type="button" id="cs330button2" class="select";></td>
-            <td><input type="button" id="cs330button3" class="select";></td>
-            <td><input type="button" id="cs330button4" class="select";></td>
-            <td><input type="button" id="cs330button5" class="select";></td>
-            <td><input type="button" id="cs330button6" class="select";></td>
-            <td><input type="button" id="cs330button7" class="select";></td>
-            <td><input type="button" id="cs330button8" class="select";></td>
-            <td><input type="button" id="cs330button9" class="select";></td>
-            <td><input type="button" id="cs330button10" class="select";></td>
-			<td><form><input type="text" name="cs330grade" size="2"></form></td>
+                  <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs330button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs330grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS340</th>
           <td colspan="2">Systems Programming II</td>
           <td>CS225, 330</td>
           <td>3</td>
-			<td><input type="button" id="cs340button1" class="select";></td>
-            <td><input type="button" id="cs340button2" class="select";></td>
-            <td><input type="button" id="cs340button3" class="select";></td>
-            <td><input type="button" id="cs340button4" class="select";></td>
-            <td><input type="button" id="cs340button5" class="select";></td>
-            <td><input type="button" id="cs340button6" class="select";></td>
-            <td><input type="button" id="cs340button7" class="select";></td>
-            <td><input type="button" id="cs340button8" class="select";></td>
-            <td><input type="button" id="cs340button9" class="select";></td>
-            <td><input type="button" id="cs340button10" class="select";></td>
-			<td><form><input type="text" name="cs340grade" size="2"></form></td>
+            <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs340button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs340grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS350</th>
           <td colspan="2">Discrete Structures</td>
           <td>CS220, MATH151 or 161</td>
           <td>3</td>
-			<td><input type="button" id="cs350button1" class="select";></td>
-            <td><input type="button" id="cs350button2" class="select";></td>
-            <td><input type="button" id="cs350button3" class="select";></td>
-            <td><input type="button" id="cs350button4" class="select";></td>
-            <td><input type="button" id="cs350button5" class="select";></td>
-            <td><input type="button" id="cs350button6" class="select";></td>
-            <td><input type="button" id="cs350button7" class="select";></td>
-            <td><input type="button" id="cs350button8" class="select";></td>
-            <td><input type="button" id="cs350button9" class="select";></td>
-            <td><input type="button" id="cs350button10" class="select";></td>
-			<td><form><input type="text" name="cs350grade" size="2"></form></td>
+                  <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs350button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs350grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS380</th>
           <td colspan="2">Data Structures</td>
           <td>CS225, 350</td>
           <td>3</td>
-			<td><input type="button" id="cs380button1" class="select";></td>
-            <td><input type="button" id="cs380button2" class="select";></td>
-            <td><input type="button" id="cs380button3" class="select";></td>
-            <td><input type="button" id="cs380button4" class="select";></td>
-            <td><input type="button" id="cs380button5" class="select";></td>
-            <td><input type="button" id="cs380button6" class="select";></td>
-            <td><input type="button" id="cs380button7" class="select";></td>
-            <td><input type="button" id="cs380button8" class="select";></td>
-            <td><input type="button" id="cs380button9" class="select";></td>
-            <td><input type="button" id="cs380button10" class="select";></td>
-			<td><form><input type="text" name="cs380grade" size="2"></form></td>
+                <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs380button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+               <td><form><input type="text" name="cs380grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS390</th>
           <td colspan="2">Database Mgt Systems</td>
           <td>CS225, 350</td>
           <td>3</td>
-			<td><input type="button" id="cs390button1" class="select";></td>
-            <td><input type="button" id="cs390button2" class="select";></td>
-            <td><input type="button" id="cs390button3" class="select";></td>
-            <td><input type="button" id="cs390button4" class="select";></td>
-            <td><input type="button" id="cs390button5" class="select";></td>
-            <td><input type="button" id="cs390button6" class="select";></td>
-            <td><input type="button" id="cs390button7" class="select";></td>
-            <td><input type="button" id="cs390button8" class="select";></td>
-            <td><input type="button" id="cs390button9" class="select";></td>
-            <td><input type="button" id="cs390button10" class="select";></td>
-			<td><form><input type="text" name="cs390grade" size="2"></form></td>
+                <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs390button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs390grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS400</th>
           <td colspan="2">Compiler Construction</td>
           <td>CS380</td>
           <td>3</td>
-			<td><input type="button" id="cs400button1" class="select";></td>
-            <td><input type="button" id="cs400button2" class="select";></td>
-            <td><input type="button" id="cs400button3" class="select";></td>
-            <td><input type="button" id="cs400button4" class="select";></td>
-            <td><input type="button" id="cs400button5" class="select";></td>
-            <td><input type="button" id="cs400button6" class="select";></td>
-            <td><input type="button" id="cs400button7" class="select";></td>
-            <td><input type="button" id="cs400button8" class="select";></td>
-            <td><input type="button" id="cs400button9" class="select";></td>
-            <td><input type="button" id="cs400button10" class="select";></td>
-			<td><form><input type="text" name="cs400grade" size="2"></form></td>
+                <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs400button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs400grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS445</th>
           <td colspan="2">Computer Architecture & Org</td>
           <td>CS225, 350</td>
           <td>4</td>
-			<td><input type="button" id="cs445button1" class="select";></td>
-            <td><input type="button" id="cs445button2" class="select";></td>
-            <td><input type="button" id="cs445button3" class="select";></td>
-            <td><input type="button" id="cs445button4" class="select";></td>
-            <td><input type="button" id="cs445button5" class="select";></td>
-            <td><input type="button" id="cs445button6" class="select";></td>
-            <td><input type="button" id="cs445button7" class="select";></td>
-            <td><input type="button" id="cs445button8" class="select";></td>
-            <td><input type="button" id="cs445button9" class="select";></td>
-            <td><input type="button" id="cs445button10" class="select";></td>
-			<td><form><input type="text" name="cs445grade" size="2"></form></td>
+               <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs445button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td><form><input type="text" name="cs455grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS455</th>
           <td colspan="2">Numerical Analysis</td>
           <td>CS220, MATH161</td>
           <td>3</td>
-			<td><input type="button" id="cs455button1" class="select";></td>
-            <td><input type="button" id="cs455button2" class="select";></td>
-            <td><input type="button" id="cs455button3" class="select";></td>
-            <td><input type="button" id="cs455button4" class="select";></td>
-            <td><input type="button" id="cs455button5" class="select";></td>
-            <td><input type="button" id="cs455button6" class="select";></td>
-            <td><input type="button" id="cs455button7" class="select";></td>
-            <td><input type="button" id="cs455button8" class="select";></td>
-            <td><input type="button" id="cs455button9" class="select";></td>
-            <td><input type="button" id="cs455button10" class="select";></td>
-			<td><form><input type="text" name="cs455grade" size="2"></form></td>
+                  <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs455button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs455grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS470</th>
           <td colspan="2">Software Engineering I</td>
           <td>CS380, 390</td>
           <td>3</td>
-			<td><input type="button" id="cs470button1" class="select";></td>
-            <td><input type="button" id="cs470button2" class="select";></td>
-            <td><input type="button" id="cs470button3" class="select";></td>
-            <td><input type="button" id="cs470button4" class="select";></td>
-            <td><input type="button" id="cs470button5" class="select";></td>
-            <td><input type="button" id="cs470button6" class="select";></td>
-            <td><input type="button" id="cs470button7" class="select";></td>
-            <td><input type="button" id="cs470button8" class="select";></td>
-            <td><input type="button" id="cs470button9" class="select";></td>
-            <td><input type="button" id="cs470button10" class="select";></td>
-			<td><form><input type="text" name="cs470grade" size="2"></form></td>
+                  <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs470button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs470grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS480</th>
           <td colspan="2">Software Engineering II</td>
           <td>CS470</td>
           <td>3</td>
-			<td><input type="button" id="cs480button1" class="select";></td>
-            <td><input type="button" id="cs480button2" class="select";></td>
-            <td><input type="button" id="cs480button3" class="select";></td>
-            <td><input type="button" id="cs480button4" class="select";></td>
-            <td><input type="button" id="cs480button5" class="select";></td>
-            <td><input type="button" id="cs480button6" class="select";></td>
-            <td><input type="button" id="cs480button7" class="select";></td>
-            <td><input type="button" id="cs480button8" class="select";></td>
-            <td><input type="button" id="cs480button9" class="select";></td>
-            <td><input type="button" id="cs480button10" class="select";></td>
-			<td><form><input type="text" name="cs480grade" size="2"></form></td>
+                  <td>
+          		<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button1">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td> 
+            <td>
+            	<select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button2">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button3">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button4">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button5">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+               <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button6">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button7">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button8">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button9">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+            <td>
+                <select class="selectpicker" data-width="100%" class= "dropdownsize" title=" " name="cs480button10">
+  					<option title="C">Completed</option>
+  					<option title="IP">In Progress</option>
+  					<option title="P">Planned</option>
+  					<option title="F">Failed</option>
+				</select>
+            </td>
+                  <td><form><input type="text" name="cs480grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>
@@ -325,13 +1258,13 @@ height: 20px;
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			<p class="table-bordered">Upper Division Computer Science Electives - 3 Courses Below (9 Elective Units Required)</p>
+            <p class="table-bordered">Upper Division Computer Science Electives - 3 Courses Below (9 Elective Units Required)</p>
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-    <table class="table table-condensed table-bordered">
+    <table class="table-bordered">
       <thead>
         <tr>
           <th>Course ID </th>
@@ -352,119 +1285,399 @@ height: 20px;
           <td colspan="2">Web Programming</td>
           <td>CS225</td>
           <td>3</td>
-            <td><input type="button" id="cs363button1" class="select";></td>
-            <td><input type="button" id="cs363button2" class="select";></td>
-            <td><input type="button" id="cs363button3" class="select";></td>
-            <td><input type="button" id="cs363button4" class="select";></td>
-            <td><input type="button" id="cs363button5" class="select";></td>
-            <td><input type="button" id="cs363button6" class="select";></td>
-            <td><input type="button" id="cs363button7" class="select";></td>
-            <td><input type="button" id="cs363button8" class="select";></td>
-            <td><input type="button" id="cs363button9" class="select";></td>
-            <td><input type="button" id="cs363button10" class="select";></td>
-			<td><form><input type="text" name="cs363grade" size="2"></form></td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs363button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs363button10" class="select";>
+                </div>
+            </td>
+            <td><form><input type="text" name="cs363grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS420</th>
           <td colspan="2">Telecom &amp; Interfacing</td>
           <td>CS330</td>
           <td>3</td>
-            <td><input type="button" id="cs420button1" class="select";></td>
-            <td><input type="button" id="cs420button2" class="select";></td>
-            <td><input type="button" id="cs420button3" class="select";></td>
-            <td><input type="button" id="cs420button4" class="select";></td>
-            <td><input type="button" id="cs420button5" class="select";></td>
-            <td><input type="button" id="cs420button6" class="select";></td>
-            <td><input type="button" id="cs420button7" class="select";></td>
-            <td><input type="button" id="cs420button8" class="select";></td>
-            <td><input type="button" id="cs420button9" class="select";></td>
-            <td><input type="button" id="cs420button10" class="select";></td>
-			<td><form><input type="text" name="cs420grade" size="2"></form></td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs420button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs420button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="cs420grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">CS425</th>
           <td colspan="2">Fundamentals of Network Admin</td>
           <td>CS420</td>
           <td>3</td>
-			<td><input type="button" id="cs425button1" class="select";></td>
-            <td><input type="button" id="cs425button2" class="select";></td>
-            <td><input type="button" id="cs425button3" class="select";></td>
-            <td><input type="button" id="cs425button4" class="select";></td>
-            <td><input type="button" id="cs425button5" class="select";></td>
-            <td><input type="button" id="cs425button6" class="select";></td>
-            <td><input type="button" id="cs425button7" class="select";></td>
-            <td><input type="button" id="cs425button8" class="select";></td>
-            <td><input type="button" id="cs425button9" class="select";></td>
-            <td><input type="button" id="cs425button10" class="select";></td>
-			<td><form><input type="text" name="cs425grade" size="2"></form></td>
+                  <td>
+                <div class="d1">
+                    <input type="button" id="cs425button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs425button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs425button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="cs425grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS430</th>
           <td colspan="2">Artificial Intelligence</td>
           <td>CS225</td>
           <td>3</td>
-			<td><input type="button" id="cs430button1" class="select";></td>
-            <td><input type="button" id="cs430button2" class="select";></td>
-            <td><input type="button" id="cs430button3" class="select";></td>
-            <td><input type="button" id="cs430button4" class="select";></td>
-            <td><input type="button" id="cs430button5" class="select";></td>
-            <td><input type="button" id="cs430button6" class="select";></td>
-            <td><input type="button" id="cs430button7" class="select";></td>
-            <td><input type="button" id="cs430button8" class="select";></td>
-            <td><input type="button" id="cs430button9" class="select";></td>
-            <td><input type="button" id="cs430button10" class="select";></td>
-			<td><form><input type="text" name="cs430grade" size="2"></form></td>
+                  <td>
+                <div class="d1">
+                    <input type="button" id="cs430button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs430button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs430button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="cs430grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS435</th>
           <td colspan="2">Advanced Database</td>
           <td>CS330, 390</td>
           <td>3</td>
-			<td><input type="button" id="cs435button1" class="select";></td>
-            <td><input type="button" id="cs435button2" class="select";></td>
-            <td><input type="button" id="cs435button3" class="select";></td>
-            <td><input type="button" id="cs435button4" class="select";></td>
-            <td><input type="button" id="cs435button5" class="select";></td>
-            <td><input type="button" id="cs435button6" class="select";></td>
-            <td><input type="button" id="cs435button7" class="select";></td>
-            <td><input type="button" id="cs435button8" class="select";></td>
-            <td><input type="button" id="cs435button9" class="select";></td>
-            <td><input type="button" id="cs435button10" class="select";></td>
-			<td><form><input type="text" name="cs430grade" size="2"></form></td>
+                  <td>
+                <div class="d1">
+                    <input type="button" id="cs435button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs435button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs435button10" class="select";>
+                </div>
+            </td>
+                 <td><form><input type="text" name="cs435grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">&nbsp;</th>
           <td colspan="2"><strong>UDWI: Upper Division Writing Intensive</strong></td>
           <td>&nbsp;</td>
           <td>3</td>
-			<td><input type="button" id="udwibutton1" class="select";></td>
-            <td><input type="button" id="udwibutton2" class="select";></td>
-            <td><input type="button" id="udwibutton3" class="select";></td>
-            <td><input type="button" id="udwibutton4" class="select";></td>
-            <td><input type="button" id="udwibutton5" class="select";></td>
-            <td><input type="button" id="udwibutton6" class="select";></td>
-            <td><input type="button" id="udwibutton7" class="select";></td>
-            <td><input type="button" id="udwibutton8" class="select";></td>
-            <td><input type="button" id="udwibutton9" class="select";></td>
-            <td><input type="button" id="udwibutton10" class="select";></td>
-			<td><form><input type="text" name="udwigrade" size="2"></form></td>
+                  <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="udwibutton2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="udwibutton10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="udwigrade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">CS496</th>
           <td colspan="2">Senior Seminar: Ethics in CS</td>
           <td>UDWI</td>
           <td>3</td>
-			<td><input type="button" id="cs496button1" class="select";></td>
-            <td><input type="button" id="cs496button2" class="select";></td>
-            <td><input type="button" id="cs496button3" class="select";></td>
-            <td><input type="button" id="cs496button4" class="select";></td>
-            <td><input type="button" id="cs496button5" class="select";></td>
-            <td><input type="button" id="cs496button6" class="select";></td>
-            <td><input type="button" id="cs496button7" class="select";></td>
-            <td><input type="button" id="cs496button8" class="select";></td>
-            <td><input type="button" id="cs496button9" class="select";></td>
-            <td><input type="button" id="cs496button10" class="select";></td>
-			<td><form><input type="text" name="cs496grade" size="2"></form></td>
+                 <td>
+                <div class="d1">
+                    <input type="button" id="cs496button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="cs496button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="cs496button10" class="select";>
+                </div>
+            </td>
+                 <td><form><input type="text" name="cs496grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>
@@ -475,13 +1688,13 @@ height: 20px;
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-			<p class="table-bordered">Math Track and Requirements- 2 Math Courses Below (9 Math Units Required)</p>
+            <p class="table-bordered">Math Track and Requirements- 2 Math Courses Below (9 Math Units Required)</p>
         </a>
       </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   <div class="panel-body">
-    <table class="table table-condensed table-bordered">
+    <table class="table-bordered">
       <thead>
         <tr>
           <th>Course ID </th>
@@ -502,68 +1715,228 @@ height: 20px;
           <td colspan="2">College Alegebra </td>
           <td>&nbsp;</td>
           <td>3</td>
-            <td><input type="button" id="math110button1" class="select";></td>
-            <td><input type="button" id="math110button2" class="select";></td>
-            <td><input type="button" id="math110button3" class="select";></td>
-            <td><input type="button" id="math110button4" class="select";></td>
-            <td><input type="button" id="math110button5" class="select";></td>
-            <td><input type="button" id="math110button6" class="select";></td>
-            <td><input type="button" id="math110button7" class="select";></td>
-            <td><input type="button" id="math110button8" class="select";></td>
-            <td><input type="button" id="math110button9" class="select";></td>
-            <td><input type="button" id="math110button10" class="select";></td>
-			<td><form><input type="text" name="math110grade" size="2"></form></td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="math110button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math110button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="math110grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">MATH150</th>
           <td colspan="2">Precalculus </td>
           <td>MATH110</td>
           <td>3</td>
-            <td><input type="button" id="math150button1" class="select";></td>
-            <td><input type="button" id="math150button2" class="select";></td>
-            <td><input type="button" id="math150button3" class="select";></td>
-            <td><input type="button" id="math150button4" class="select";></td>
-            <td><input type="button" id="math150button5" class="select";></td>
-            <td><input type="button" id="math150button6" class="select";></td>
-            <td><input type="button" id="math150button7" class="select";></td>
-            <td><input type="button" id="math150button8" class="select";></td>
-            <td><input type="button" id="math150button9" class="select";></td>
-            <td><input type="button" id="math150button10" class="select";></td>
-			<td><form><input type="text" name="math150grade" size="2"></form></td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="math150button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math150button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="math150grade" size="2"></form></td>
         </tr>
          <tr>
           <th scope="row">MATH161</th>
           <td colspan="2">Calculus I</strong></td>
           <td>math161</td>
           <td>5</td>
-            <td><input type="button" id="math161button1" class="select";></td>
-            <td><input type="button" id="math161button2" class="select";></td>
-            <td><input type="button" id="math161button3" class="select";></td>
-            <td><input type="button" id="math161button4" class="select";></td>
-            <td><input type="button" id="math161button5" class="select";></td>
-            <td><input type="button" id="math161button6" class="select";></td>
-            <td><input type="button" id="math161button7" class="select";></td>
-            <td><input type="button" id="math161button8" class="select";></td>
-            <td><input type="button" id="math161button9" class="select";></td>
-            <td><input type="button" id="math161button10" class="select";></td>
-			<td><form><input type="text" name="math161grade" size="2"></form></td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="math161button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math161button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="math161grade" size="2"></form></td>
         </tr>
         <tr>
           <th scope="row">MATH162</th>
           <td colspan="2">Calculus II</td>
           <td>MATH161</td>
           <td>4</td>
-			<td><input type="button" id="math162button1" class="select";></td>
-            <td><input type="button" id="math162button2" class="select";></td>
-            <td><input type="button" id="math162button3" class="select";></td>
-            <td><input type="button" id="math162button4" class="select";></td>
-            <td><input type="button" id="math162button5" class="select";></td>
-            <td><input type="button" id="math162button6" class="select";></td>
-            <td><input type="button" id="math162button7" class="select";></td>
-            <td><input type="button" id="math162button8" class="select";></td>
-            <td><input type="button" id="math162button9" class="select";></td>
-            <td><input type="button" id="math162button10" class="select";></td>
-			<td><form><input type="text" name="grade" size="2"></form></td>
+                  <td>
+                <div class="d1">
+                    <input type="button" id="math162button1" class="select";>
+                </div>
+            </td>
+            <td>
+               <div class="d1">
+                    <input type="button" id="math162button2" class="select";>
+               </div> 
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button3" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button4" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button5" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button6" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button7" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button8" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button9" class="select";>
+                </div>
+            </td>
+            <td>
+                <div class="d1">
+                    <input type="button" id="math162button10" class="select";>
+                </div>
+            </td>
+                  <td><form><input type="text" name="grade" size="2"></form></td>
         </tr>
       </tbody>
 </table>
@@ -582,7 +1955,7 @@ height: 20px;
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <p>&copy; 2015 Finger Puppet Mafia <br/ > Azusa Pacific University <br/ > Rapid Prototype: October 23, 2015</p>
+        <p>&copy; 2015 Finger Puppet Mafia <br/ > Azusa Pacific University <br/ > April 7, 2016</p>
       </div>
     </div>
   </div>
