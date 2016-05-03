@@ -98,7 +98,7 @@
 			    <?php $startyear = $stustartyear; ?>
 				    <th colspan="3"></th>
 				    <?php for($x = 0; $x < 5; $x++){ ?>
-			    	<th colspan="3"><center><?php echo $startyear + $x ?></center></th>
+			    		<th colspan="3"><center><?php echo $startyear + $x ?></center></th>
 			    	<?php } ?>
 				    <th></th>
 				</tr>
@@ -288,7 +288,7 @@
 												</select>
 											</td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "spring":
@@ -323,7 +323,7 @@
 												</select>
 											</td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "summer":
@@ -358,7 +358,7 @@
 												</select>
 											</td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 								}
@@ -382,7 +382,7 @@
 					} // End of row, loop through again until end of table! ?>
 					</table>
 				</div>
-				<center><a href="advisor_home.php">Take Me Back!</a></center>
+				<center><a class="link" href="advisor_home.php">Take Me Back!</a></center>
 	  	</div>
 	</div>
   </div>

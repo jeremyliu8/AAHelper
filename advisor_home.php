@@ -55,13 +55,13 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="row extra-top">
-                <a href="#" class="btn btn-lg btn-primaryButts btn-block">Plan Advising</a>
+                <a href="#" class="btn-lg btn-primaryButts btn-block">Plan Advising</a>
              </div>
             <div class="row extra-top">
-                 <a href="add_class.php" class="btn btn-lg btn-primaryButts btn-block">Add A Class</a>
+                 <a href="add_class.php" class="btn-lg btn-primaryButts btn-block">Add A Class</a>
             </div>
             <div class="row extra-top">
-                 <a href="#" class="btn btn-lg btn-primaryButts btn-block">Manage Accounts</a>
+                 <a href="#" class="btn-lg btn-primaryButts btn-block">Manage Accounts</a>
             </div>
         </div>
         <div class="col-md-4"></div>
@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <input type="search" id="search" value="" class="form-control" placeholder="Search for students">
+                    <input type="search" id="search" value="" class="form-control" placeholder="Search for your students">
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -102,7 +102,7 @@
                                     $studentid = $row['studentid'];
                                     $major = $row['major'];
                                     echo "<tr>";
-                                    echo "<td><a href=advisor_form.php?studentid=",urlencode($studentid),">$studentid</a></td>";
+                                    echo "<td><a class='link' href=advisor_form.php?studentid=",urlencode($studentid),">$studentid</a></td>";
                                     echo "<td>$fname</td>";
                                     echo "<td>$lname</td>";
                                     echo "<td>$major</td>";

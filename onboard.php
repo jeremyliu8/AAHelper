@@ -48,7 +48,7 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </fieldset>
                         <fieldset>
-                            <select class="selectpicker form-control" data-width="100%" name="major" title="Select Your Major...">
+                            <select class="form-control original" data-width="100%" name="major" title="Select Your Major...">
                               <option value="CS">Computer Science</option>
                               <option value="CIS">Computer Information Systems</option>
                             </select>
@@ -57,7 +57,7 @@
                             <input type="text" class="form-control extra-top" name="startyear" placeholder="Start Year" maxlength="4" required>
                         </fieldset>
                         <fieldset>
-                            <select class="selectpicker form-control" data-width="100%" name="advisor" title="Select Your Advisor...">
+                            <select class="form-control original" data-width="100%" name="advisor" title="Select Your Advisor...">
                             <?php                         
                                 // SQL statement we want to execute
                                 $fetchAdvisors = "SELECT advid, fname, lname 
@@ -83,7 +83,7 @@
                             </select>
                         </fieldset>
                         <div class ="text-center">
-                            <button type="submit" class="btn btn-lg btn-primary extra-top">Submit</button>
+                            <button type="submit" class="btn-lg btn-primary extra-top">Submit</button>
                         </div>
                     </form>
                 </div>
