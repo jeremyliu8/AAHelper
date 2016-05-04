@@ -106,6 +106,7 @@ select.selectpicker {
   text-align: left;
 }
 .bootstrap-select.btn-group .dropdown-toggle .caret {
+  visibility: hidden;
   position: absolute;
   top: 50%;
   right: 12px;

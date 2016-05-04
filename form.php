@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
 <?php 
 	session_start();
 
@@ -28,7 +24,24 @@
 	//write_to_file($studentMajor, "\$studentMajor");
 
 ?>
-<nav class="navbar navbar-default navbar-inverse">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
@@ -54,15 +67,14 @@
   </div>
 </nav>
 
-<body background="img/sunset.jpg">
 <!-- the table -->
 <div class="container">
-  <div class="row">
+  <div class="row extra-top">
     <div class="col-lg-12">
       <div class="jumbotron">
 	  		<div class="panel panel-default">
-			    <table class="table table-condensed table-bordered">
-			    <tr>
+			    <table class="table-bordered">
+			    <tr> <!-- Set table headers -->
 			    <?php $startyear = $_SESSION['startyear']; ?>
 				    <th colspan="3"></th>
 				    <?php for($x = 0; $x < 5; $x++){ ?>
@@ -71,17 +83,18 @@
 				    <th></th>
 				</tr>
 				  	<tr>
-					    <th>Class Name</th>
-					    <th>Course ID</th>
-					    <th>units</th>
+					    <th class="className table-title">Class Name</th>
+					    <th class="table-title">ID</th>
+					    <th class="table-title">units</th>
 					    <?php for($x = 0; $x < 5; $x++){ ?>
-						    <th>F</th>
-						    <th>S</th>
-						    <th><i class="fa fa-sun-o"></i></th>
+						    <th class="term-width">F</th>
+						    <th class="term-width">S</th>
+						    <th class="term-width"><i class="fa fa-sun-o"></i></th>
 					    <?php } ?>
-					    <th>Course Grade</th>
+					    <th class="table-title">Grade</th>
 				  	</tr>
 
+				  	<!-- Fill out form body -->
 					<?php
 
 					$sql_coursemajor = "SELECT * 
@@ -150,9 +163,9 @@
 
 						?>
 						<tr> 
-							<td> <?php echo $row['classname']; ?> </td>
-							<td> <?php echo $row['courseid']; ?> </td> 
-							<td> <?php echo $row['units']; ?> </td> 
+							<td class="className table-title"> <?php echo $row['classname']; ?> </td>
+							<td class="table-title"> <?php echo $row['courseid']; ?> </td> 
+							<td class="table-title"> <?php echo $row['units']; ?> </td> 
 							<?php
 								//break up terms
 								$termnum = $row['term'];
@@ -160,28 +173,52 @@
 								$spring = substr($termnum, 1,1);
 								$summer = substr($termnum, 2,1);
 
+							$currentTerm = "fall";
+							for ($i=1; $i <= 15; $i++) { 
+								switch ($currentTerm) {
+									case "fall":
+										if (validate_term($fall, $takenspace, $i) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($fall, $takenspace, $i) == "available") {
+											?><td></td><?php
+										} else {
+											?><td style="background-color:#A5989F;"></td><?php
+										}
+										break;
+									case "spring":
+										if (validate_term($spring, $takenspace, $i) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($spring, $takenspace, $i) == "available") {
+											?><td></td><?php
+										} else {
+											?><td style="background-color:#A5989F;"></td><?php
+										}
+										break;
+									case "summer":
+										if (validate_term($summer, $takenspace, $i) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($summer, $takenspace, $i) == "available") {
+											?><td></td><?php
+										} else {
+											?><td style="background-color:#A5989F;"></td><?php
+										}
+										break;
+								}
 
-							//replicate for all 5 years
-							//for($x = 0; $x < 5; $x++){ ?>
-							<td <?php echo validate_term($fall, $takenspace, 1); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 2); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 3); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 4); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 5); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 6); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 7); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 8); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 9); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 10); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 11); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 12); ?> ></td>
-							<td <?php echo validate_term($fall, $takenspace, 13); ?> ></td>
-							<td <?php echo validate_term($spring, $takenspace, 14); ?> ></td>
-							<td <?php echo validate_term($summer, $takenspace, 15); ?> ></td>
-							<?php $takenspace = null;// } ?>
+								// Cycle through the terms
+								if ($currentTerm == "fall") {
+									$currentTerm = "spring";
+								} elseif ($currentTerm == "spring") {
+									$currentTerm = "summer";
+								} elseif ($currentTerm == "summer") {
+									$currentTerm = "fall";
+								}
+							}
+
+							$takenspace = null; ?>
 							<!-- end replication -->
 
-							<td> <?php echo $grade; ?> </td> 
+							<td><?php echo $grade; ?></td> 
 						</tr> 
 						<?php
 					} // End of row, loop through again until end of table! ?>
