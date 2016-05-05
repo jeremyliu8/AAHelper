@@ -16,9 +16,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add a Course</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
+        <title>Add a Course</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+        <script src="js/bootstrap-select.js"/></script>
+        <script src="js/bootstrap.min.js"></script>
+
     </head>
     <body>
         <!-- if( $posted ) {
@@ -27,28 +33,56 @@
             else
                 echo "<script type='text/javascript'>alert('failed!')</script>";
         } -->
-
-        <h1 class="title">Add A New Course</h1>
-        <div id="newuser" class ="form">
-            <form method="post" action="createCourse.php">
-                <p><input type="text" class="input" name="courseid" placeholder="Course ID" required></p>
-                <p><input type="text" class="input" name="classname" placeholder="Class Name" required></p>
-                <p><input type="text" class="input" name="units" placeholder="Units" required></p>
-                <p>Terms available:</p>
-                <p>
-                    <input type="checkbox" name="fall" value="fall">Fall
-                    <input type="checkbox" name="spring" value="spring">Spring
-                    <input type="checkbox" name="summer" value="summer">Summer
-                </p>
-                <p><input type="submit" class="go" value="Create!"></p>
-                <p>
-            </form>
+        <div class="container">
+            <div class="row">
+                <h2 class="title text-center">Add A New Class</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 form">
+                    <form method="post" action="createCourse.php">
+                     <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="courseid" placeholder="Course ID" maxlength="9" required>
+                       </fieldset>
+                       <fieldset class="form-group"> 
+                            <input type="text" class="form-control" name="classname" placeholder="Class Name" required>
+                       </fieldset>
+                       <fieldset class "form-group">
+                            <select class="form-control original" data-width="100%" name="units" title="Select Amount of Units">
+                            <option value="1">1 unit</option>
+                            <option value="2">2 units</option>
+                            <option value="3">3 units</option>
+                            <option value="4">4 units</option>
+                            <option value="5">5 units</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group text-center extra-top"> 
+                            <label for="terms">Terms Available</label>
+                        </fieldset>
+                        <fieldset class="form-group text-center checkbox-space">
+                            <input type="checkbox" class "textbook-space" name="fall" value="fall">Fall
+                            <input type="checkbox" class "textbook-space" name="spring" value="spring">Spring
+                            <input type="checkbox" class "textbook-space" name="summer" value="summer">Summer
+                        </fieldset>
+                        
+                        <div class ="text-center">
+                            <button type="submit" class="btn-primary extra-top">Submit</button>
+                        </div>
+                     </form>
+                </div>
+             </div>
         </div>
-
-        <center><a href="includes/logout.php">Logout</a></center>
+       
+        <div class="extra-top text-center">
+             <a href="includes/logout.php" class="logout">Logout</a>
+        </div>
+        
 
         
         <!-- include footer -->
-        <?php include 'footer.php'; ?>
+        <div class="row text-center extra-top">
+            <?php include_once "footer.php" ?>
+        </div>
     </body>   
 </html>
