@@ -33,31 +33,31 @@
                 <div class="col-md-4 form">
                     <form method="post" action="createStudent.php">
                         <fieldset class="form-group"> 
-                            <input type="text" class="form-control" name="studid" placeholder="Student ID" maxlength="9" required>
+                            <input type="text" class="form-control" name="studid" placeholder="Student ID" maxlength="9" autocomplete="off" required>
                         </fieldset>
                         <fieldset class="form-group"> 
-                            <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                            <input type="text" class="form-control" name="fname" placeholder="First Name" autocomplete="off" required>
                         </fieldset>
                         <fieldset class="form-group"> 
-                            <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="lname" placeholder="Last Name" autocomplete="off" required>
                         </fieldset>
                         <fieldset class="form-group"> 
-                            <input type="text" class="form-control" name="email" placeholder="Email" required>
+                            <input type="text" class="form-control" name="email" placeholder="Email" autocomplete="off" required>
                         </fieldset>
                         <fieldset class="form-group"> 
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </fieldset>
                         <fieldset>
-                            <select class="selectpicker form-control" data-width="100%" name="major" title="Select Your Major...">
+                            <select class="selectpicker" data-width="100%" name="major" title="Select Your Major...">
                               <option value="CS">Computer Science</option>
                               <option value="CIS">Computer Information Systems</option>
                             </select>
                         </fieldset>
                         <fieldset class="form-group"> 
-                            <input type="text" class="form-control extra-top" name="startyear" placeholder="Start Year" maxlength="4" required>
+                            <input type="text" class="form-control extra-top" name="startyear" placeholder="Start Year" maxlength="4" autocomplete="off" required>
                         </fieldset>
-                        <fieldset>
-                            <select class="selectpicker form-control" data-width="100%" name="advisor" title="Select Your Advisor...">
+                        <fieldset class="form-group">
+                            <select class="selectpicker" data-width="100%" name="advisor" title="Select Your Advisor...">
                             <?php                         
                                 // SQL statement we want to execute
                                 $fetchAdvisors = "SELECT advid, fname, lname 
@@ -78,12 +78,46 @@
                                         $name = ""; // reset the name for next advisor.
                                     }
                                 }
+                            ?>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <select class="selectpicker"
+                                    data-live-search="true"
+                                    name="transferred[]"
+                                    multiple
+                                    data-selected-text-format="count > 5" 
+                                    data-width="100%"
+                                    data-size="5"
+                                    data-dropup-auto="false"
+                                    title="Transferred Classes...">
+                            <?php                         
+                                // SQL statement we want to execute
+                                $fetchCourses = "SELECT courseid, classname 
+                                                  FROM courses;";
+                                
+                                // store the result object
+                                $result = $connection->query($fetchCourses);
+                                
+                                $name = "";
+                                $courseid = "";
+
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $name = $row['courseid'] . " - " . $row['classname'];
+                                        $courseid = $row['courseid'];
+                                        trim($name); // trim off any whitespace
+                                        echo "<option value='$courseid' title='$courseid'>$name</option>";
+                                        $name = ""; // reset the name for next course.
+                                    }
+                                }
                                 $connection->close();
                             ?>
                             </select>
                         </fieldset>
+
                         <div class ="text-center">
-                            <button type="submit" class="btn btn-lg btn-primary extra-top">Submit</button>
+                            <button type="submit" class="btn-lg btn-primary extra-top">Create!</button>
                         </div>
                     </form>
                 </div>

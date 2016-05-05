@@ -21,11 +21,22 @@
     $major = $_POST['major'];
     $startyear = $_POST['startyear'];
     $advid = $_POST['advisor'];
+    
+    if (isset($_POST['transferred'])) {
+        $transferred = $_POST['transferred']; // This is an array of classes
+    }
 
     $newStudent = "INSERT INTO student (studentid, fname, lname, email, password, major, startyear, advid) 
             VALUES ('$studentid', '$fname', '$lname', '$email', '$password', '$major', '$startyear', '$advid')";
     
-    if ($connection->query($newStudent) === TRUE) {
+    if ($connection->query($newStudent) == TRUE) {
+        if (isset($transferred) && !empty($transferred)) {
+            foreach ($transferred as $transferredClass) {
+                $sql = "INSERT INTO studentcourse (studentid, courseid, grade, termtaken, status)
+                        VALUES ('$studentid', '$transferredClass', 'T', '11111', 'T')";
+                $connection->query($sql);
+            }
+        }
         echo "<h2 class='success'>&#x2713; New Student Added Successfully!</h2>";
         echo "<p>Click <a href='index.php'>here</a> to go to your new account!</p>";
     } else {
