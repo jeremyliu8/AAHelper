@@ -111,6 +111,7 @@
 					//takes every courseid with correct major
 
 					$takenspace = null;
+					$status = 0;
 					
 					while ($row = $result->fetch_array()) {
 
@@ -159,6 +160,7 @@
 							$takenspace = $remain + $termpos;
 
 							$grade = $taken['grade'];
+							$status = $taken['status'];
 						}
 
 						?>
@@ -177,27 +179,45 @@
 							for ($i=1; $i <= 15; $i++) { 
 								switch ($currentTerm) {
 									case "fall":
-										if (validate_term($fall, $takenspace, $i) == "taken") {
+										if (validate_term($fall, $takenspace, $i, $status) == "taken") {
 											?><td>C</td><?php
-										} elseif (validate_term($fall, $takenspace, $i) == "available") {
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "available") {
 											?><td></td><?php
 										} else {
 											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "spring":
-										if (validate_term($spring, $takenspace, $i) == "taken") {
+										if (validate_term($spring, $takenspace, $i, $status) == "taken") {
 											?><td>C</td><?php
-										} elseif (validate_term($spring, $takenspace, $i) == "available") {
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "available") {
 											?><td></td><?php
 										} else {
 											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "summer":
-										if (validate_term($summer, $takenspace, $i) == "taken") {
+										if (validate_term($summer, $takenspace, $i, $status) == "taken") {
 											?><td>C</td><?php
-										} elseif (validate_term($summer, $takenspace, $i) == "available") {
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "available") {
 											?><td></td><?php
 										} else {
 											?><td style="background-color:#A5989F;"></td><?php

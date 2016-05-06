@@ -2,11 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Course</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css"/>
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+
+        <script src="js/bootstrap-select.js"/></script>
+        <script src="js/bootstrap.min.js"></script>
 <body>
     <?php
     // Database information
@@ -81,19 +88,40 @@
                         VALUES ('$courseid', '$coreq')";
                 $connection->query($sql);
             }
-        }
-        echo "<h2 class='success'>&#x2713; New Class Added Successfully!</h2>";
-        echo "<p>Click <a href='searchcourse.php'>here</a> view all courses.</p>";
-    } else {
-        echo "<h2 class='error'>&#x2717; Uh-oh! There was an error adding the class!</h2>";
-        echo "<p>Error: " . $connection->error . "</p>";
-        echo "<p>Click <a href='javascript:history.back()'>here</a> to go try again</p>";
-    }
+        } ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2 class='success'>&#x2713; New Course Added Successfully!</h2>
+                    <p>Click <a href='searchcourse.php'>here</a> to view all courses.</p>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>  
+        </div>
+    <?php } else { ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2 class='success'>&#x2717; Uh-oh! There was an error adding the class!</h2>
+                    <p>Click <a href='javascript:history.back()'>here</a> to try again.</p>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>  
+        </div>
+    <?php }
 
 
     $connection->close();
     ?>
     <!-- include footer -->
-    <?php include 'footer.php'; ?>
+    <div class="row text-center extra-top">
+        <?php include_once "footer.php" ?>
+    </div>
 </body>
 </html>

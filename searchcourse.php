@@ -93,7 +93,7 @@
                                             echo "<td>$classname</td>";
                                             echo "<td>$units</td>";
                                             echo "<td>$term</td>";
-                                            echo "<td><a class='logout' href=#",urlencode("delete"),">delete</a></td>";
+                                            echo "<td><a class='logout' href=deleteCourse.php?courseid=",urlencode($courseid),">delete</a></td>";
                                             echo "</tr>";
                                         }
                                     }

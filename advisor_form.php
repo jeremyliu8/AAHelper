@@ -14,14 +14,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>
-	<script type="text/javascript">
-	function checkStatus(status, id) {
-		if (status == "IP" || status == "C") {
-			var currentClass = document.getElementById(id);
-			var prereq = currentClass.dataset.prereqs;
-		}
-	}
-	</script>
 </head>
 <?php 
 	session_start();
@@ -101,6 +93,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-xs-12">
       <div class="jumbotron">
+      			<!-- <div id="txtHint"><b>stuff</b></div> -->
 	  		<div class="panel panel-default">
 			    <table id="form" class="table-bordered">
 			    <tr>
@@ -295,6 +288,8 @@
 
 							$termList = array($fall, $spring, $summer);
 							$counter = 0;
+							$GradeId = $row['courseid'];
+
 
 							for ($i=1; $i <= 15; $i++) {
 								// Give each button an individual id
@@ -323,7 +318,7 @@
 												id="<?php echo $buttonId; ?>"
 												data-width="100%" 
 												title=" "
-												onchange="checkStatus(this.value, <?php echo $courseid; ?>)"
+												onchange="update(this.value, this.id)" 
 												<?php 
 												if (!$courseIsTaken && $i == $termWeAreCurrentlyIn) {
 												 	echo "data-style='highlight'";
@@ -354,7 +349,28 @@
 							$takenspace = null; ?>
 							<!-- end replication -->
 
-							<td><input type="text" name="cs" size="3" maxlength="2" value="<?php echo $grade; ?>"></td> 
+							<td>							
+							<select 
+							class="selectpicker"
+							id="<?php echo $GradeId; ?>" 
+							data-width="100%" 
+							title="<?php echo $grade; ?>"
+							onchange="updateGrade(this.value, this.id)" >
+							<option><?php echo $grade; ?></option>
+							<option title="A">A</option>
+							<option title="A-">A-</option>
+							<option title="B+">B+</option>
+							<option title="B">B</option>
+							<option title="B-">B-</option>
+							<option title="C+">C+</option>
+							<option title="C">C</option>
+							<option title="C-">C-</option>
+							<option title="D+">D+</option>
+							<option title="D">D</option>
+							<option title="D-">D-</option>
+							<option title="F">F</option>
+							</select>
+							</td> 
 						</tr> 
 						<?php
 						$rowCounter++;
@@ -370,7 +386,96 @@
 <?php
   $connection->close();
 ?>
+<script>
+	function update(str, id) {
+	    if (str == "") {
+	        document.getElementById("txtHint").innerHTML = "";
+	        return;
+	    } else { 
+	        if (window.XMLHttpRequest) {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } else {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+	        xmlhttp.onreadystatechange = function() {
+	            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+	            }
+	        };
 
+	        var stuid = "<?php echo $studentid ?>";
+
+	        var startyear = "<?php echo $stustartyear ?>";
+
+	        xmlhttp.open("GET","update.php?s="+str+"&i="+id+"&st="+stuid+"&y="+startyear,true);
+	        xmlhttp.send();
+
+	        //Attempt to check for prereqs
+			var rowId= id.substr(0, id.indexOf('-')); 
+
+		    var currentClass = document.getElementById(rowId);
+        	var prereq = currentClass.dataset.prereqs;
+
+        	if (!prereq || 0 === prereq.length) {
+
+        	} else {
+        		var string = "Check your prereqs: " + prereq;
+        		alert(string);
+        	}
+
+        	// if (prereq.indexOf(' ') >= 0) {
+        	// 	alert("hi");
+        	// 	alert("hi");
+        	// 	for (var i = 0; i < array.length-1; i++) {
+         // 		var prereqClass = document.getElementById(array[i]); // row of prereq
+         // 		var prereqRow = document.getElementsByTagName("td");
+         // 		for (var x = 0; x < array.length-1; x++ {
+         // 			Things[x]
+         // 		};
+        	// };
+        	// }
+        	// else {
+        	// 	var prereqRow = document.getElementById(prereq);
+        	// 	var prereqArray = prereqRow.getElementsByTagName("td");
+        	// 	for (var i = 0; i < prereqArray.length; i++) {
+        	// 		var prereqCell = prereqArray.getElementsByTagName("select");
+        	// 		alert(typeof prereqCell);
+        	// 		if (prereqCell.value != 'C') {
+        	// 			alert("Prereqs not met!");
+        	// 		};
+        	// 	};
+        	// }
+	    }
+	}
+</script>
+<script>
+	function updateGrade(str, id) {
+	    if (str == "") {
+	        document.getElementById("txtHint").innerHTML = "";
+	        return;
+	    } else { 
+	        if (window.XMLHttpRequest) {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } else {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+	        xmlhttp.onreadystatechange = function() {
+	            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+	            }
+	        };
+
+	       	var stuid = "<?php echo $studentid ?>";
+
+	        xmlhttp.open("GET","updateGrade.php?s="+str+"&i="+id+"&st="+stuid,true);
+	        xmlhttp.send();
+	    }
+	}
+</script>
 <!-- include footer -->
 <center>
   <?php include 'footer.php'; ?>
