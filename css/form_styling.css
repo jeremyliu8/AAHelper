@@ -1,0 +1,33 @@
+/* This css file is only used in the advisor_form.php to format the buttons */
+
+/* taget individual bootstrap tweaks */
+
+.bootstrap-select > .dropdown-toggle {
+    padding-right: 8px;
+}
+
+.btn {
+    border: none;
+    border-radius: 0px;
+    padding: 8px;
+    width: 45px;
+    text-align: center;
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+    text-align: center;
+}
+
+.highlight {
+    background-color: #ffff76;
+}
+.highlight:hover {
+    background-color: #d8d800;
+}
+.highlight:active {
+    background-color: #d8d800;
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .caret, .caret {
+    visibility: hidden;
+}

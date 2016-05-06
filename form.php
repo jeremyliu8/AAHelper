@@ -83,15 +83,15 @@
 				    <th></th>
 				</tr>
 				  	<tr>
-					    <th>Class Name</th>
-					    <th>Course ID</th>
-					    <th>units</th>
+					    <th class="className table-title">Class Name</th>
+					    <th class="table-title">ID</th>
+					    <th class="table-title">units</th>
 					    <?php for($x = 0; $x < 5; $x++){ ?>
-						    <th>F</th>
-						    <th>S</th>
-						    <th><i class="fa fa-sun-o"></i></th>
+						    <th class="term-width">F</th>
+						    <th class="term-width">S</th>
+						    <th class="term-width"><i class="fa fa-sun-o"></i></th>
 					    <?php } ?>
-					    <th>Course Grade</th>
+					    <th class="table-title">Grade</th>
 				  	</tr>
 
 				  	<!-- Fill out form body -->
@@ -111,6 +111,7 @@
 					//takes every courseid with correct major
 
 					$takenspace = null;
+					$status = 0;
 					
 					while ($row = $result->fetch_array()) {
 
@@ -159,13 +160,14 @@
 							$takenspace = $remain + $termpos;
 
 							$grade = $taken['grade'];
+							$status = $taken['status'];
 						}
 
 						?>
 						<tr> 
-							<td> <?php echo $row['classname']; ?> </td>
-							<td> <?php echo $row['courseid']; ?> </td> 
-							<td> <?php echo $row['units']; ?> </td> 
+							<td class="className table-title"> <?php echo $row['classname']; ?> </td>
+							<td class="table-title"> <?php echo $row['courseid']; ?> </td> 
+							<td class="table-title"> <?php echo $row['units']; ?> </td> 
 							<?php
 								//break up terms
 								$termnum = $row['term'];
@@ -177,78 +179,48 @@
 							for ($i=1; $i <= 15; $i++) { 
 								switch ($currentTerm) {
 									case "fall":
-										if (validate_term($fall, $takenspace, $i) == "taken") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C" selected="selected">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
-										} elseif (validate_term($fall, $takenspace, $i) == "available") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
+										if (validate_term($fall, $takenspace, $i, $status) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($fall, $takenspace, $i, $status) == "available") {
+											?><td></td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "spring":
-										if (validate_term($spring, $takenspace, $i) == "taken") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C" selected="selected">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
-										} elseif (validate_term($spring, $takenspace, $i) == "available") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
+										if (validate_term($spring, $takenspace, $i, $status) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($spring, $takenspace, $i, $status) == "available") {
+											?><td></td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 									case "summer":
-										if (validate_term($summer, $takenspace, $i) == "taken") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C" selected="selected">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
-										} elseif (validate_term($summer, $takenspace, $i) == "available") {
-											?><td>
-												<select class="selectpicker" data-width="100%" title=" ">
-													<option title="C">Completed</option>
-													<option title="IP">In Progress</option>
-													<option title="P">Planned</option>
-													<option title="F">Failed</option>
-													<option title="">Unselect</option>
-												</select>
-											</td><?php
+										if (validate_term($summer, $takenspace, $i, $status) == "taken") {
+											?><td>C</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "failed") {
+											?><td>F</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "planned") {
+											?><td>P</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "progress") {
+											?><td>IP</td><?php
+										} elseif (validate_term($summer, $takenspace, $i, $status) == "available") {
+											?><td></td><?php
 										} else {
-											?><td style="background-color:black;"></td><?php
+											?><td style="background-color:#A5989F;"></td><?php
 										}
 										break;
 								}
@@ -266,7 +238,7 @@
 							$takenspace = null; ?>
 							<!-- end replication -->
 
-							<td><input type="text" name="cs" size="3" maxlength="2" value="<?php echo $grade; ?>"></td> 
+							<td><?php echo $grade; ?></td> 
 						</tr> 
 						<?php
 					} // End of row, loop through again until end of table! ?>

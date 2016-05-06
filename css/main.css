@@ -1,5 +1,15 @@
+/**********************
+Color Palette:
+Light Brown: #CEBBB4
+Dark Brown: #A5989F
+Light Grey: #ECF1F5
+Dark Grey: #757388
+**********************/
+
+
 body {
     background-image: url("../img/sunset.jpg");
+    color: #655;
 }
 
 /****************************************
@@ -24,26 +34,26 @@ h1.title{
 
 .btn-primary {
     background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #00bfff; 
-    color: #00bfff;
+    border: 1px solid #A5989F; 
+    color: #A5989F;
     /*width: 100%;*/
 }
 
 .btn-primaryButts {
-    border-color: #00bfff;  
+    border-color: #A5989F;  
     color: #fff;
-    background-color: #00bfff;
+    background-color: #A5989F;
 }
 .btn-primary:hover {
-    background-color: #00bfff;
+    background-color: #A5989F;
     transition: .5s;
     text-decoration: none;
     color: #fff;
-    border-color: #00bfff;
+    border-color: #A5989F;
 }
 
 .btn-primaryButts:hover {
-    background-color: #0099cc;
+    background-color: #877;
     color: #fff;
     transition: .5s;
     text-decoration: none;
@@ -51,35 +61,28 @@ h1.title{
 }
 
 
+
 /****************************************
-New User Page 
+Advisor Homepage 
 *****************************************/
 
-/* Bootstrap tweaks */
-
-.extra-top {
-    margin-top: 15px;
-} 
-
-
-h2.title {
-    margin: 40px;
-    font-size: 30pt;
+.table > thead > tr > th {
+    border-color: #A5989F;
 }
 
-/* Colors */
-p {
-    color: #999;
-    font-size: 11pt;
+.table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-color: #CEBBB4;
 }
 
-a, li:hover {
-    color: #00bfff;
-}
 
-h1.title, h2.title {
-    color: rgba(255, 255, 255, 0.80);
 
+/****************************************
+Advisor Homepage 
+*****************************************/
+
+.overflowing {
+    overflow: scroll;
+    height: 450px;
 }
 
 
@@ -106,7 +109,7 @@ a.link {
 }
 
 a.link:hover{
-    color: #00bfff;
+    color: #A5989F;
     text-decoration: underline;
 }
 
@@ -115,14 +118,13 @@ a.logout {
 }
 
 
-
 /****************************************
 Form Page
 *****************************************/
 
 .jumbotron {
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -130,10 +132,6 @@ Form Page
 .test{
   width: 20px;
   height: 20px;
-}
-
-.select.highlight {
-    background:rgb(26, 255, 0);
 }
 
 table.table-bordered td.t1{
@@ -158,10 +156,6 @@ th, td{
     padding: 2px 10px;
 }
 
-.bootstrap-select.btn-group .dropdown-toggle .filter-option {
-    text-align: center;
-}
-
 .navbar-custom {
     background: rgba(255, 255, 255, 0.5);
     border: none;
@@ -173,23 +167,37 @@ th, td{
 
 
 
-/* individual cell bootstrap tweaks */
+/****************************************
+New User Page 
+*****************************************/
 
-.bootstrap-select > .dropdown-toggle {
-    padding-right: 8px;
+/* Bootstrap tweaks */
+
+.extra-top {
+    margin-top: 15px;
+} 
+
+
+h2.title {
+    margin: 40px;
+    font-size: 30pt;
 }
 
-.btn {
-    border: none;
-    border-radius: 0px;
-    padding: 8px;
-    width: 45px;
-    text-align: center;
+/* Colors */
+p {
+    /*color: #999;*/
+    font-size: 11pt;
 }
 
-.bootstrap-select.btn-group .dropdown-toggle .filter-option {
-    text-align: center;
+a, li:hover {
+    color: #A5989F;
 }
+
+h1.title, h2.title {
+    color: rgba(255, 255, 255, 0.80);
+
+}
+
 
 
 /****************************************
